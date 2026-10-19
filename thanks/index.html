@@ -38,7 +38,17 @@
     animation: rise .6s cubic-bezier(.2, .8, .2, 1) both;
   }
   @keyframes rise { from { opacity: 0; transform: translateY(16px); } }
-  .box img { width: 100%; aspect-ratio: 16 / 8; object-fit: cover; display: block; }
+  .pic { position: relative; aspect-ratio: 16 / 9; }
+  .pic > img:not(.logo) { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .pic::after {
+    content: ""; position: absolute; inset: auto 0 0 0; height: 70%;
+    background: linear-gradient(to top, var(--cocoa), transparent);
+  }
+  .pic .logo {
+    position: absolute; z-index: 1; left: 50%; bottom: -6px; transform: translateX(-50%);
+    width: 44%; max-width: 180px; height: auto;
+    filter: drop-shadow(0 3px 10px rgba(0, 0, 0, .45));
+  }
   .body { padding: 22px 22px 26px; }
   h1 { font-weight: 900; font-size: 32px; line-height: 1.1; color: var(--mango-2); }
   p { font-size: 17px; margin-top: 10px; }
@@ -60,7 +70,10 @@
 </head>
 <body>
   <main class="box">
-    <img src="../img/fruit.webp" width="720" height="540" alt="קופסה עם קינוחי פירות קפואים בציפוי שוקולד">
+    <div class="pic">
+      <img src="../img/fruit.webp" width="720" height="540" alt="קופסה עם קינוחי פירות קפואים בציפוי שוקולד">
+      <img class="logo" src="../img/logo-fruit.webp" width="520" height="327" alt="קינוחי פירות – קורס דיגיטלי">
+    </div>
     <div class="body">
       <h1>את ברשימה!</h1>
       <p>ברגע שקינוחי הפירות נפתחים, את מקבלת ראשונה במייל, עם המחיר המיוחד לרשימה.</p>
