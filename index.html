@@ -223,6 +223,32 @@
   /* Rav Messer form, restyled to match the page */
   .rm-form { margin-top: 14px; }
   .rm-form, .rm-form * { font-family: "Rubik", system-ui, sans-serif !important; }
+  .rm-form [role="heading"] { display: none !important; }
+  .rm-form [class*="uniqueid_"] { background: transparent !important; }
+  .rm-form input[type="text"] {
+    height: 54px !important;
+    padding: 0 16px !important;
+    border: 2px solid var(--cream-2) !important;
+    border-radius: 14px !important;
+    background: #fff !important;
+    color: var(--cocoa) !important;
+    font-size: 17px !important; /* 16px+ keeps iPhone from zooming in on focus */
+    box-shadow: none !important;
+  }
+  .rm-form input[type="text"]::placeholder { color: #A08C80 !important; }
+  .rm-form input[type="text"]:focus { border-color: var(--mango) !important; outline: none !important; }
+  .rm-form .submitButton {
+    height: 54px !important;
+    border: 0 !important;
+    border-radius: 999px !important;
+    background: var(--mango) !important;
+    color: var(--cocoa) !important;
+    font-size: 18px !important; font-weight: 700 !important;
+    box-shadow: 0 4px 0 #C46A00 !important;
+    cursor: pointer;
+  }
+  .rm-form .submitButton * { color: var(--cocoa) !important; font-weight: 700 !important; }
+  .rm-form .submitButton:active { transform: scale(.97); box-shadow: 0 1px 0 #C46A00 !important; }
 
   a:focus-visible { outline: 3px solid var(--mango); outline-offset: 3px; }
   @media (prefers-reduced-motion: reduce) {
@@ -314,6 +340,14 @@
         if (location.hash === '#waitlist') history.replaceState(null, '', location.pathname + location.search);
         opener.focus();
       }
+      // Rav Messer's button says "שליחה"; give it the same words as the page button.
+      function relabel() {
+        sheet.querySelectorAll('.rm-form .submitButton').forEach(function (b) {
+          b.textContent = 'תכניסי אותי לרשימה';
+        });
+      }
+      relabel();
+      window.addEventListener('load', relabel);
       opener.addEventListener('click', open);
       sheet.querySelector('.sheet-close').addEventListener('click', close);
       sheet.addEventListener('click', function (e) { if (e.target === sheet) close(); });
