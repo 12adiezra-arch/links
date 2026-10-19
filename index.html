@@ -183,6 +183,44 @@
     .btn:hover { transform: translateY(-2px); }
     .social a:hover { background: var(--berry); }
   }
+  /* Waitlist sheet */
+  .sheet {
+    position: fixed; inset: 0; z-index: 50;
+    background: rgba(38, 21, 15, .55);
+    display: flex; align-items: flex-end; justify-content: center;
+    opacity: 0; visibility: hidden;
+    transition: opacity .25s ease, visibility .25s;
+  }
+  .sheet.open { opacity: 1; visibility: visible; }
+  .sheet-panel {
+    position: relative;
+    width: 100%; max-width: 460px;
+    max-height: 92vh; overflow-y: auto;
+    background: var(--cream);
+    border-radius: 26px 26px 0 0;
+    padding: 26px 20px calc(24px + env(safe-area-inset-bottom));
+    transform: translateY(40px);
+    transition: transform .3s cubic-bezier(.2, .8, .2, 1);
+  }
+  .sheet.open .sheet-panel { transform: none; }
+  .sheet-panel h2 { font-weight: 900; font-size: 24px; line-height: 1.15; padding-left: 40px; }
+  .sheet-panel > p { font-size: 15px; color: var(--ink-soft); margin-top: 6px; }
+  .sheet-close {
+    position: absolute; top: 16px; left: 16px;
+    width: 40px; height: 40px; border-radius: 50%;
+    border: 0; background: var(--cream-2); color: var(--cocoa);
+    display: grid; place-items: center; cursor: pointer;
+  }
+  .sheet-close svg { width: 20px; height: 20px; }
+  @media (min-width: 600px) {
+    .sheet { align-items: center; }
+    .sheet-panel { border-radius: 26px; }
+  }
+
+  /* Rav Messer form, restyled to match the page */
+  .rm-form { margin-top: 14px; }
+  .rm-form, .rm-form * { font-family: "Rubik", system-ui, sans-serif !important; }
+
   a:focus-visible { outline: 3px solid var(--mango); outline-offset: 3px; }
   @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after { animation: none !important; transition: none !important; }
@@ -207,8 +245,7 @@
         <div class="body">
           <h2 id="fruit-title">קינוחי הפירות</h2>
           <p class="lead">הקינוחים הוויראליים, בגרסה שבאמת תכיני בבית.</p>
-                    <!-- WAITLIST: swap href for the Rav Messer signup link (or replace with the embedded form) -->
-          <a class="btn" href="#WAITLIST" id="waitlist-btn">
+          <a class="btn" href="#waitlist" id="waitlist-btn" aria-controls="waitlist">
             תכניסי אותי לרשימה
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg>
           </a>
@@ -241,5 +278,46 @@
       <small>© עדי עזרא</small>
     </footer>
   </main>
+
+  <!-- Waitlist sheet. The Rav Messer form script writes the form in place while the page loads,
+       so it has to stay inline here; the sheet only shows and hides it. -->
+  <div class="sheet" id="waitlist" role="dialog" aria-modal="true" aria-labelledby="sheet-title">
+    <div class="sheet-panel">
+      <button class="sheet-close" type="button" aria-label="סגירה">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+      <h2 id="sheet-title">תכניסי אותי לרשימה</h2>
+      <p>ברגע שקינוחי הפירות נפתחים, את שומעת ראשונה, במייל, עם המחיר המיוחד לרשימה.</p>
+      <div class="rm-form">
+        <script type="text/javascript" src="https://form2.ravpage.co.il/b83910b9ffe488e757939acc000114d76AD61898" charset="UTF-8"></script>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      var sheet = document.getElementById('waitlist');
+      var opener = document.getElementById('waitlist-btn');
+      function open(e) {
+        if (e) e.preventDefault();
+        sheet.classList.add('open');
+        document.body.style.overflow = 'hidden';
+        var first = sheet.querySelector('.rm-form input:not([type=hidden])');
+        if (first) setTimeout(function () { first.focus(); }, 250);
+      }
+      function close() {
+        sheet.classList.remove('open');
+        document.body.style.overflow = '';
+        if (location.hash === '#waitlist') history.replaceState(null, '', location.pathname + location.search);
+        opener.focus();
+      }
+      opener.addEventListener('click', open);
+      sheet.querySelector('.sheet-close').addEventListener('click', close);
+      sheet.addEventListener('click', function (e) { if (e.target === sheet) close(); });
+      document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && sheet.classList.contains('open')) close(); });
+      // Story links can point straight at the form: links.adiiiezra.co.il/#waitlist
+      if (location.hash === '#waitlist') open();
+    })();
+  </script>
 </body>
 </html>

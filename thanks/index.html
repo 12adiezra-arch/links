@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>את ברשימה | עדי עזרא</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#26150F">
+<link rel="icon" href="../img/adi.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cocoa: #26150F;
+    --cream: #FFF6EC;
+    --cream-2: #FFE9CF;
+    --mango: #FF9A1F;
+    --mango-2: #FFC94A;
+    --ink-soft: #6B5347;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: "Rubik", system-ui, sans-serif;
+    background: var(--cream);
+    color: var(--cocoa);
+    min-height: 100vh;
+    display: grid; place-items: center;
+    padding: 24px 16px;
+    line-height: 1.5;
+  }
+  .box {
+    width: 100%; max-width: 420px;
+    background: var(--cocoa); color: var(--cream);
+    border-radius: 26px; overflow: hidden;
+    box-shadow: 0 14px 30px rgba(38, 21, 15, .28);
+    text-align: center;
+    animation: rise .6s cubic-bezier(.2, .8, .2, 1) both;
+  }
+  @keyframes rise { from { opacity: 0; transform: translateY(16px); } }
+  .box img { width: 100%; aspect-ratio: 16 / 8; object-fit: cover; display: block; }
+  .body { padding: 22px 22px 26px; }
+  h1 { font-weight: 900; font-size: 32px; line-height: 1.1; color: var(--mango-2); }
+  p { font-size: 17px; margin-top: 10px; }
+  .tip {
+    font-size: 14px; margin-top: 16px; padding: 12px 14px;
+    background: rgba(255, 246, 236, .1); border-radius: 14px;
+  }
+  .btn {
+    display: flex; align-items: center; justify-content: center;
+    min-height: 50px; margin-top: 20px; border-radius: 999px;
+    background: var(--mango); color: var(--cocoa);
+    font: 700 17px/1.2 "Rubik", sans-serif; text-decoration: none;
+    box-shadow: 0 4px 0 #C46A00;
+  }
+  .btn:active { transform: scale(.97); box-shadow: 0 1px 0 #C46A00; }
+  a:focus-visible { outline: 3px solid var(--mango-2); outline-offset: 3px; }
+  @media (prefers-reduced-motion: reduce) { .box { animation: none; } }
+</style>
+</head>
+<body>
+  <main class="box">
+    <img src="../img/fruit.webp" width="720" height="540" alt="קופסה עם קינוחי פירות קפואים בציפוי שוקולד">
+    <div class="body">
+      <h1>את ברשימה!</h1>
+      <p>ברגע שקינוחי הפירות נפתחים, את שומעת ראשונה, במייל, עם המחיר המיוחד לרשימה.</p>
+      <p class="tip">שווה להציץ גם בתיקיית קידומי מכירות או ספאם, שהמייל ממני לא ילך לאיבוד.</p>
+      <a class="btn" href="https://www.instagram.com/adiiiezra">בינתיים, נתראה באינסטגרם</a>
+    </div>
+  </main>
+</body>
+</html>
