@@ -95,10 +95,16 @@
 
   /* Fruit (coming soon) */
   .fruit { background: var(--cocoa); color: var(--cream); box-shadow: 0 10px 24px rgba(38, 21, 15, .25); }
-  .fruit .pic { position: relative; aspect-ratio: 16 / 7; }
-  .fruit .pic img { width: 100%; height: 100%; object-fit: cover; object-position: center 40%; display: block; }
+  .fruit .pic { position: relative; aspect-ratio: 16 / 8; }
+  .fruit .pic > img:not(.logo) { width: 100%; height: 100%; object-fit: cover; object-position: center 40%; display: block; }
+  .fruit .pic .logo {
+    position: absolute; z-index: 1; right: 14px; bottom: 4px;
+    width: 46%; max-width: 200px; height: auto;
+    filter: drop-shadow(0 3px 10px rgba(0, 0, 0, .45));
+  }
+  .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
   .fruit .pic::after {
-    content: ""; position: absolute; inset: auto 0 0 0; height: 45%;
+    content: ""; position: absolute; inset: auto 0 0 0; height: 70%;
     background: linear-gradient(to top, var(--cocoa), transparent);
   }
   .badge {
@@ -119,7 +125,7 @@
     font-weight: 900; font-size: 24px; line-height: 1.1;
     color: var(--mango-2);
   }
-  .fruit .lead { font-size: 15px; font-weight: 500; margin-top: 4px; }
+  .fruit .lead { font-size: 15px; font-weight: 500; margin-top: 2px; }
   .fruit .btn {
     margin-top: 12px;
     background: var(--mango); color: var(--cocoa);
@@ -159,7 +165,9 @@
     .me h1 { font-size: 21px; margin-top: 6px; }
     .me p { font-size: 14px; }
     .cards { margin-top: 12px; gap: 10px; }
-    .fruit .pic { aspect-ratio: 16 / 5; }
+    .fruit .pic { aspect-ratio: 16 / 6; }
+    .badge { right: auto; left: 10px; }
+    .fruit .pic .logo { width: 40%; }
     .fruit h2 { font-size: 21px; }
     .fruit .btn { margin-top: 10px; }
     .fruit .note { margin-top: 7px; font-size: 12px; }
@@ -273,15 +281,16 @@
         <div class="pic">
           <span class="badge"><i></i>בקרוב מאוד</span>
           <img src="img/fruit.webp" width="720" height="540" alt="קופסה עם קינוחי פירות קפואים בציפוי שוקולד">
+          <img class="logo" src="img/logo-fruit.webp" width="520" height="327" alt="">
         </div>
         <div class="body">
-          <h2 id="fruit-title">קינוחי הפירות</h2>
+          <h2 id="fruit-title" class="sr-only">קינוחי פירות – קורס דיגיטלי</h2>
           <p class="lead">הקינוחים הוויראליים, בגרסה שבאמת תכיני בבית.</p>
           <a class="btn" href="#waitlist" id="waitlist-btn" aria-controls="waitlist">
             תכניסי אותי לרשימה
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg>
           </a>
-          <p class="note">מי שברשימה שומעת ראשונה ומקבלת מחיר מיוחד</p>
+          <p class="note">מי שברשימה מקבלת ראשונה, ובמחיר מיוחד</p>
         </div>
       </section>
 
@@ -319,7 +328,7 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
       </button>
       <h2 id="sheet-title">רשימת ההמתנה לקינוחי הפירות</h2>
-      <p>ברגע שקינוחי הפירות נפתחים, את שומעת ראשונה, במייל, עם המחיר המיוחד לרשימה.</p>
+      <p>ברגע שקינוחי הפירות נפתחים, את מקבלת ראשונה במייל, עם המחיר המיוחד לרשימה.</p>
       <div class="rm-form">
         <script type="text/javascript" src="https://form2.ravpage.co.il/b83910b9ffe488e757939acc000114d76AD61898" charset="UTF-8"></script>
       </div>
