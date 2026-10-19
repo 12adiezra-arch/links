@@ -192,6 +192,9 @@
     transition: opacity .25s ease, visibility .25s;
   }
   .sheet.open { opacity: 1; visibility: visible; }
+  /* Rav Messer's form CSS sets visibility on its own elements, which would leave invisible
+     but tappable bits over the page while the sheet is closed. */
+  .sheet:not(.open), .sheet:not(.open) * { visibility: hidden !important; pointer-events: none !important; }
   .sheet-panel {
     position: relative;
     width: 100%; max-width: 460px;
