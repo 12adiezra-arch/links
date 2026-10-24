@@ -262,6 +262,8 @@
   #waitlist .rm-form .submitButton:active { transform: scale(.97); box-shadow: 0 1px 0 #C46A00 !important; }
 
   a:focus-visible { outline: 3px solid var(--mango); outline-offset: 3px; }
+  /* Fairy dust: full-page canvas drawn by the script at the end of the page; never blocks taps */
+  .fairy { position: fixed; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 5; }
   @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after { animation: none !important; transition: none !important; }
   }
@@ -325,6 +327,88 @@
   <script>
     // Old story links pointed at the waitlist form (links.adiiiezra.co.il/#waitlist); send them to the countdown page
     if (location.hash === '#waitlist') location.replace('https://adiiiezra.ravpage.co.il/%D7%A7%D7%99%D7%A0%D7%95%D7%97%D7%99%D7%A4%D7%99%D7%A8%D7%95%D7%AA%D7%A8%D7%A9%D7%99%D7%9E%D7%94?utm_source=ig&utm_medium=social&utm_content=links_page');
+  </script>
+  <script>
+    // Fairy dust: a few glowing "wands" fly loops over the page (around the photo, across the page and around
+    // the reminder button) and shed glitter that drifts down, twinkles and fades. Off for reduced-motion users.
+    (function () {
+      if (!window.matchMedia || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      var cv = document.createElement('canvas'), ctx = cv.getContext('2d');
+      cv.className = 'fairy'; cv.setAttribute('aria-hidden', 'true'); document.body.appendChild(cv);
+      var W, H, dpr;
+      function size() { dpr = Math.min(window.devicePixelRatio || 1, 2); W = innerWidth; H = innerHeight; cv.width = W * dpr; cv.height = H * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0); }
+      size(); addEventListener('resize', size);
+
+      // Iridescent palette: gold, rose, lilac, aqua, peach, white
+      var COLORS = ['255,208,96', '255,138,196', '190,150,255', '120,224,255', '255,178,130', '255,255,255'];
+      function glow(c) {
+        var s = document.createElement('canvas'); s.width = s.height = 64; var g = s.getContext('2d');
+        var r = g.createRadialGradient(32, 32, 0, 32, 32, 32);
+        r.addColorStop(0, 'rgba(255,255,255,1)'); r.addColorStop(.2, 'rgba(' + c + ',.95)');
+        r.addColorStop(.5, 'rgba(' + c + ',.3)'); r.addColorStop(1, 'rgba(' + c + ',0)');
+        g.fillStyle = r; g.fillRect(0, 0, 64, 64); return s;
+      }
+      function star(c) {
+        var s = glow(c), g = s.getContext('2d');
+        g.globalCompositeOperation = 'lighter'; g.strokeStyle = 'rgba(255,255,255,.9)'; g.lineWidth = 1.6;
+        g.beginPath(); g.moveTo(32, 2); g.lineTo(32, 62); g.moveTo(2, 32); g.lineTo(62, 32); g.stroke();
+        return s;
+      }
+      var DOTS = COLORS.map(glow), STARS = COLORS.map(star);
+
+      var parts = [], MAX = 900;
+      function dust(x, y, n, burst) {
+        for (var i = 0; i < n && parts.length < MAX; i++) {
+          var a = Math.random() * 6.283, sp = burst ? .05 + Math.random() * .12 : Math.random() * .03;
+          parts.push({ x: x, y: y, vx: Math.cos(a) * sp, vy: Math.sin(a) * sp - (burst ? .02 : 0),
+            age: 0, life: 900 + Math.random() * 1400, r: 2 + Math.random() * 4,
+            c: (Math.random() * COLORS.length) | 0, st: Math.random() < .12, tw: Math.random() * 6.283 });
+        }
+      }
+
+      function bez(a, b, c, d, t) { var u = 1 - t; return [u*u*u*a[0] + 3*u*u*t*b[0] + 3*u*t*t*c[0] + t*t*t*d[0], u*u*u*a[1] + 3*u*u*t*b[1] + 3*u*t*t*c[1] + t*t*t*d[1]]; }
+      var btn = document.querySelector('.fruit .btn'), photo = document.querySelector('.me img');
+      function box(el, pad) { var r = el.getBoundingClientRect(); return { x: r.left + r.width / 2, y: r.top + r.height / 2, rx: r.width / 2 + pad, ry: r.height / 2 + pad }; }
+      function loop(b, t, dir) { var a = t * 6.283 * dir; return [b.x + b.rx * Math.cos(a), b.y - b.ry * Math.sin(a)]; }
+      // Each path: t in 0..1 -> point. Mirrored versions fly the other way.
+      var PATHS = [
+        function (t, m) { var b = box(btn, 12); if (t < .35) return bez([-.08*W, .14*H], [.35*W, -.06*H], [1.02*W, .22*H], [b.x + b.rx, b.y], t / .35);
+          if (t < .75) return loop(b, (t - .35) / .4, 1); return bez([b.x + b.rx, b.y], [1.05*W, b.y + .1*H], [.7*W, 1.0*H], [.35*W, 1.1*H], (t - .75) / .25); },
+        function (t) { var b = box(photo, 16); if (t < .33) return bez([1.08*W, .4*H], [.8*W, .45*H], [.95*W, b.y], [b.x + b.rx, b.y], t / .33);
+          if (t < .7) return loop(b, (t - .33) / .37, -1); return bez([b.x + b.rx, b.y], [.7*W, .35*H], [.1*W, .3*H], [-.1*W, .05*H], (t - .7) / .3); },
+        function (t) { var b = box(btn, 10), a = t * 3.3 * Math.PI, r = 1 - t; return [b.x + (W * .55) * r * Math.cos(a + Math.PI), b.y - (H * .45) * r * Math.sin(a + Math.PI)]; },
+        function (t) { var a = t * 6.283; return [W * (.5 + .46 * Math.sin(a)), H * (.5 + .38 * Math.sin(2 * a))]; }
+      ];
+      // [path, mirrored, start (ms in the cycle), duration (ms), burst at the end]
+      var WANDS = [[0, 0, 0, 5200], [1, 0, 2600, 5000], [2, 0, 6000, 3600, 1], [0, 1, 8600, 5200], [3, 0, 11000, 7000], [2, 1, 14600, 3600, 1]];
+      var CYCLE = 18000, prev = {}, last = performance.now(), t0 = last;
+
+      function frame(now) {
+        var dt = Math.min(now - last, 50); last = now;
+        ctx.clearRect(0, 0, W, H);
+        for (var w = 0; w < WANDS.length; w++) {
+          var wd = WANDS[w], t = (((now - t0 - wd[2]) % CYCLE) + CYCLE) % CYCLE / wd[3];
+          if (t > 1) { if (prev[w] && wd[4]) { dust(prev[w][0], prev[w][1], 45, true); } prev[w] = null; continue; }
+          var p = PATHS[wd[0]](t); if (wd[1]) p[0] = W - p[0];
+          var q = prev[w]; prev[w] = p;
+          if (q) { var dist = Math.hypot(p[0] - q[0], p[1] - q[1]), n = Math.min(16, 1 + dist * .8);
+            for (var k = 0; k < n; k++) dust(q[0] + (p[0] - q[0]) * k / n, q[1] + (p[1] - q[1]) * k / n, 1); }
+          var fade = Math.min(1, t / .06, (1 - t) / .06), hs = 26 + 6 * Math.sin(now / 90);
+          ctx.globalAlpha = fade; ctx.drawImage(STARS[0], p[0] - hs / 2, p[1] - hs / 2, hs, hs);
+          ctx.globalAlpha = fade * .8; ctx.drawImage(DOTS[5], p[0] - 9, p[1] - 9, 18, 18);
+        }
+        for (var i = parts.length - 1; i >= 0; i--) {
+          var o = parts[i]; o.age += dt;
+          if (o.age > o.life) { parts.splice(i, 1); continue; }
+          o.vy += .000035 * dt; o.vx *= .985; o.vy *= .985; o.x += o.vx * dt; o.y += o.vy * dt;
+          var k2 = 1 - o.age / o.life, a2 = k2 * (.55 + .45 * Math.sin(o.tw + o.age * .018)), s2 = o.r * (o.st ? 5 : 3.2) * (.6 + .4 * k2);
+          ctx.globalAlpha = Math.max(0, a2); ctx.drawImage((o.st ? STARS : DOTS)[o.c], o.x - s2 / 2, o.y - s2 / 2, s2, s2);
+        }
+        ctx.globalAlpha = 1;
+        requestAnimationFrame(frame);
+      }
+      requestAnimationFrame(frame);
+    })();
   </script>
 </body>
 </html>
