@@ -279,18 +279,17 @@
     <div class="cards">
       <section class="card fruit" aria-labelledby="fruit-title">
         <div class="pic">
-          <span class="badge"><i></i>בקרוב מאוד</span>
+          <span class="badge"><i></i>היום ב-18:00</span>
           <img src="img/fruit.webp" width="720" height="540" alt="קופסה עם קינוחי פירות קפואים בציפוי שוקולד">
           <img class="logo" src="img/logo-fruit.webp" width="520" height="237" alt="">
         </div>
         <div class="body">
           <h2 id="fruit-title" class="sr-only">קינוחי פירות</h2>
           <p class="lead">הקינוחים הוויראליים, בגרסה שבאמת תכיני בבית.</p>
-          <a class="btn" href="#waitlist" id="waitlist-btn" aria-controls="waitlist">
-            תכניסי אותי לרשימה
+          <a class="btn" href="https://adiiiezra.ravpage.co.il/%D7%A7%D7%99%D7%A0%D7%95%D7%97%D7%99%D7%A4%D7%99%D7%A8%D7%95%D7%AA%D7%A8%D7%A9%D7%99%D7%9E%D7%94?utm_source=ig&amp;utm_medium=social&amp;utm_content=links_page">
+            תזכירי לי ב-18:00
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg>
           </a>
-          <p class="note">רשימה סודית. מי שבפנים יודעת 🤫</p>
         </div>
       </section>
 
@@ -320,45 +319,9 @@
     </footer>
   </main>
 
-  <!-- Waitlist sheet. The Rav Messer form script writes the form in place while the page loads,
-       so it has to stay inline here; the sheet only shows and hides it. -->
-  <div class="sheet" id="waitlist" role="dialog" aria-modal="true" aria-labelledby="sheet-title">
-    <div class="sheet-panel">
-      <button class="sheet-close" type="button" aria-label="סגירה">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
-      </button>
-      <h2 id="sheet-title">רשימת ההמתנה לקינוחי הפירות</h2>
-      <p>ברגע שקינוחי הפירות נפתחים, את מקבלת ממני מייל עם הטבה בלעדית 🤫</p>
-      <div class="rm-form">
-        <script type="text/javascript" src="https://form2.ravpage.co.il/b83910b9ffe488e757939acc000114d76AD61898" charset="UTF-8"></script>
-      </div>
-    </div>
-  </div>
-
   <script>
-    (function () {
-      var sheet = document.getElementById('waitlist');
-      var opener = document.getElementById('waitlist-btn');
-      function open(e) {
-        if (e) e.preventDefault();
-        sheet.classList.add('open');
-        document.body.style.overflow = 'hidden';
-        var first = sheet.querySelector('.rm-form input:not([type=hidden])');
-        if (first) setTimeout(function () { first.focus(); }, 250);
-      }
-      function close() {
-        sheet.classList.remove('open');
-        document.body.style.overflow = '';
-        if (location.hash === '#waitlist') history.replaceState(null, '', location.pathname + location.search);
-        opener.focus();
-      }
-      opener.addEventListener('click', open);
-      sheet.querySelector('.sheet-close').addEventListener('click', close);
-      sheet.addEventListener('click', function (e) { if (e.target === sheet) close(); });
-      document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && sheet.classList.contains('open')) close(); });
-      // Story links can point straight at the form: links.adiiiezra.co.il/#waitlist
-      if (location.hash === '#waitlist') open();
-    })();
+    // Old story links pointed at the waitlist form (links.adiiiezra.co.il/#waitlist); send them to the countdown page
+    if (location.hash === '#waitlist') location.replace('https://adiiiezra.ravpage.co.il/%D7%A7%D7%99%D7%A0%D7%95%D7%97%D7%99%D7%A4%D7%99%D7%A8%D7%95%D7%AA%D7%A8%D7%A9%D7%99%D7%9E%D7%94?utm_source=ig&utm_medium=social&utm_content=links_page');
   </script>
 </body>
 </html>
