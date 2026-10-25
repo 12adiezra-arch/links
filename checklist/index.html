@@ -55,11 +55,11 @@
   .note { font-size: 13px; color: var(--ink-soft); margin-top: 12px; text-align: center; }
 
   /* Rav Messer form, restyled to match the page */
-  .rm-form { margin-top: 18px; }
-  .rm-form, .rm-form * { font-family: "Rubik", system-ui, sans-serif !important; }
-  .rm-form [role="heading"] { display: none !important; }
-  .rm-form [class*="uniqueid_"] { background: transparent !important; padding-left: 0 !important; padding-right: 0 !important; }
-  .rm-form input[type="text"], .rm-form input[type="email"] {
+  #cf .rm-form { margin-top: 18px; }
+  #cf .rm-form, #cf .rm-form * { font-family: "Rubik", system-ui, sans-serif !important; }
+  #cf .rm-form [role="heading"] { display: none !important; }
+  #cf .rm-form [class*="uniqueid_"] { background: transparent !important; padding-left: 0 !important; padding-right: 0 !important; }
+  #cf .rm-form input[type="text"], #cf .rm-form input[type="email"] {
     height: 54px !important;
     padding: 0 16px !important;
     border: 2px solid var(--cream-2) !important;
@@ -69,9 +69,9 @@
     font-size: 17px !important; /* 16px+ keeps iPhone from zooming in on focus */
     box-shadow: none !important;
   }
-  .rm-form input::placeholder { color: #A08C80 !important; }
-  .rm-form input[type="text"]:focus, .rm-form input[type="email"]:focus { border-color: var(--mango) !important; outline: none !important; }
-  .rm-form .submitButton {
+  #cf .rm-form input::placeholder { color: #A08C80 !important; }
+  #cf .rm-form input[type="text"]:focus, #cf .rm-form input[type="email"]:focus { border-color: var(--mango) !important; outline: none !important; }
+  #cf .rm-form .submitButton {
     display: flex !important; align-items: center !important; justify-content: center !important;
     width: 100% !important;
     height: 54px !important;
@@ -84,13 +84,13 @@
     box-shadow: 0 4px 0 #C46A00 !important;
     cursor: pointer;
   }
-  .rm-form .submitButton * { color: var(--cocoa) !important; font-weight: 700 !important; }
-  .rm-form .submitButton:active { transform: scale(.97); box-shadow: 0 1px 0 #C46A00 !important; }
+  #cf .rm-form .submitButton * { color: var(--cocoa) !important; font-weight: 700 !important; }
+  #cf .rm-form .submitButton:active { transform: scale(.97); box-shadow: 0 1px 0 #C46A00 !important; }
   @media (prefers-reduced-motion: reduce) { .box { animation: none; } }
 </style>
 </head>
 <body>
-  <main class="box">
+  <main class="box" id="cf">
     <div class="cover">
       <img src="cover.webp" width="720" height="1018" alt="כריכת הצ'ק-ליסט: צ'ק-ליסט התחליפים, איך לא להרוס אף מתכון מתוק בבית">
     </div>
