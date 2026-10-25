@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>הצ'ק-ליסט שלך | עדי עזרא</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#26150F">
+<link rel="icon" href="../../img/adi.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cocoa: #26150F;
+    --cream: #FFF6EC;
+    --cream-2: #FFE9CF;
+    --mango: #FF9A1F;
+    --mango-2: #FFC94A;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: "Rubik", system-ui, sans-serif;
+    background: var(--cream);
+    color: var(--cocoa);
+    min-height: 100vh;
+    display: grid; place-items: center;
+    padding: 24px 16px;
+    line-height: 1.5;
+  }
+  .box {
+    width: 100%; max-width: 420px;
+    background: var(--cocoa); color: var(--cream);
+    border-radius: 26px; overflow: hidden;
+    box-shadow: 0 14px 30px rgba(38, 21, 15, .28);
+    text-align: center;
+    padding: 30px 22px 26px;
+    animation: rise .6s cubic-bezier(.2, .8, .2, 1) both;
+  }
+  @keyframes rise { from { opacity: 0; transform: translateY(16px); } }
+  .cover { width: 46%; max-width: 170px; height: auto; border-radius: 10px; display: block; margin: 0 auto 18px; box-shadow: 0 8px 20px rgba(0, 0, 0, .35); }
+  h1 { font-weight: 900; font-size: 30px; line-height: 1.1; color: var(--mango-2); }
+  p { font-size: 17px; margin-top: 10px; }
+  .tip {
+    font-size: 14px; margin-top: 16px; padding: 12px 14px;
+    background: rgba(255, 246, 236, .1); border-radius: 14px;
+  }
+  .btn {
+    display: flex; align-items: center; justify-content: center;
+    min-height: 54px; margin-top: 20px; border-radius: 999px;
+    background: var(--mango); color: var(--cocoa);
+    font: 700 18px/1.2 "Rubik", sans-serif; text-decoration: none;
+    box-shadow: 0 4px 0 #C46A00;
+  }
+  .btn:active { transform: scale(.97); box-shadow: 0 1px 0 #C46A00; }
+  .btn.ghost { background: transparent; color: var(--cream); box-shadow: none; border: 2px solid rgba(255, 246, 236, .3); min-height: 48px; font-size: 16px; margin-top: 12px; }
+  a:focus-visible { outline: 3px solid var(--mango-2); outline-offset: 3px; }
+  @media (prefers-reduced-motion: reduce) { .box { animation: none; } }
+</style>
+</head>
+<body>
+  <main class="box">
+    <img class="cover" src="../cover.webp" width="720" height="1018" alt="כריכת צ'ק-ליסט התחליפים">
+    <h1>הנה הצ'ק-ליסט שלך 🤎</h1>
+    <p>אפשר לפתוח אותו כבר עכשיו, ושלחתי לך עותק גם למייל.</p>
+    <a class="btn" href="https://cdn.jsdelivr.net/gh/12adiezra-arch/adi-landing-assets@d3b9595dcecf0f4f6e4fe800e361905ac59b6a3f/guides/tachlifim-checklist.pdf" target="_blank" rel="noopener">לפתיחת הצ'ק-ליסט</a>
+    <p class="tip">לא רואה את המייל? שווה להציץ בתיקיית קידומי מכירות או ספאם.</p>
+    <a class="btn ghost" href="https://www.instagram.com/adiiiezra">חזרה לאינסטגרם</a>
+  </main>
+</body>
+</html>
