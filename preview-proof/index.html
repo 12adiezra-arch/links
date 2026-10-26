@@ -96,6 +96,8 @@
 .adi-fp .adi-fp__saved img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:14px}
 /* labels on the photo: a glowing dot on the dessert + a handwritten tag next to it (positions are % of the 4:5 photo) */
 .adi-fp .adi-fp__saved{position:relative}
+/* phones: the labelled photo gets (almost) the full width so the six tags have room */
+@media (max-width:719px){.adi-fp .adi-fp__split--pain .adi-fp__saved{width:96%;transform:rotate(1.5deg)}.adi-fp .adi-fp__lbl:not(.adi-fp__lbl--s) b{font-size:14px;padding:5px 9px}.adi-fp .adi-fp__lbl--s b{font-size:13px;padding:3px 8px}}
 .adi-fp .adi-fp__lbl{position:absolute;left:var(--x);top:var(--y);width:0;height:0;z-index:2}
 .adi-fp .adi-fp__lbl i{position:absolute;left:-7px;top:-7px;width:14px;height:14px;border-radius:50%;background:#fff;box-shadow:0 0 0 3px var(--rasp),0 2px 8px rgba(0,0,0,.35)}
 .adi-fp .adi-fp__lbl i::after{content:"";position:absolute;inset:-3px;border-radius:50%;border:2px solid #fff;animation:adi-ping 2.2s ease-out infinite}
@@ -106,6 +108,13 @@
 .adi-fp .adi-fp__lbl--l b::after{left:12px}
 .adi-fp .adi-fp__lbl--r b{right:-18px;transform:rotate(3deg)}
 .adi-fp .adi-fp__lbl--r b::after{right:12px}
+/* small name tags for the other desserts; --b puts the tag under the dot instead of above it */
+.adi-fp .adi-fp__lbl--s i{left:-5px;top:-5px;width:10px;height:10px;box-shadow:0 0 0 2px var(--rasp),0 2px 6px rgba(0,0,0,.3)}
+.adi-fp .adi-fp__lbl--s b{font-size:14px;padding:4px 9px;border-radius:11px;bottom:12px;max-width:none;white-space:nowrap;background:rgba(255,255,255,.94)}
+.adi-fp .adi-fp__lbl--s b::after{width:8px;height:8px;bottom:-4px}
+.adi-fp .adi-fp__lbl--b b{bottom:auto;top:12px}
+.adi-fp .adi-fp__lbl--b:not(.adi-fp__lbl--s) b{top:16px}
+.adi-fp .adi-fp__lbl--b b::after{bottom:auto;top:-4px}
 @keyframes adi-ping{0%{transform:scale(1);opacity:.9}100%{transform:scale(2.6);opacity:0}}
 @media (prefers-reduced-motion:reduce){.adi-fp .adi-fp__lbl i::after{animation:none}}
 .adi-fp .adi-fp__saved-bar{display:flex;align-items:center;justify-content:space-between;padding:10px 6px 0;color:var(--ink)}
@@ -609,8 +618,12 @@
   <figure class="adi-fp__saved">
     <span class="adi-fp__saved-tag adi-fp__script">עוד אחד לשמורים…</span>
     <img src="https://cdn.jsdelivr.net/gh/12adiezra-arch/adi-landing-assets@362c5374824160af87010629482e0c80d8b856c8/fruit-desserts/saved.jpg" width="800" height="1000" loading="lazy" alt="קופסה של קינוחי פירות חתוכים - רואים את ליבות המנגו, הפטל, הפיסטוק והפקאן" />
-    <span class="adi-fp__lbl adi-fp__lbl--l" style="--x:30%;--y:56%"><i></i><b><span class="adi-fp__script">ליבת מנגו </span><br /><span class="adi-fp__script">בשוקולד לבן</span></b></span>
-    <span class="adi-fp__lbl adi-fp__lbl--r" style="--x:84%;--y:80%"><i></i><b><span class="adi-fp__script">חותכים - </span><br /><span class="adi-fp__script">והפטל מציץ</span></b></span>
+    <span class="adi-fp__lbl adi-fp__lbl--s adi-fp__lbl--l" style="--x:26%;--y:22%"><i></i><b><span class="adi-fp__script">פקאן קרמל</span></b></span>
+    <span class="adi-fp__lbl adi-fp__lbl--s adi-fp__lbl--l" style="--x:62%;--y:15%"><i></i><b><span class="adi-fp__script">אפרסק</span></b></span>
+    <span class="adi-fp__lbl adi-fp__lbl--s adi-fp__lbl--r" style="--x:72%;--y:38%"><i></i><b><span class="adi-fp__script">בננה וחמאת בוטנים</span></b></span>
+    <span class="adi-fp__lbl adi-fp__lbl--s adi-fp__lbl--l" style="--x:30%;--y:82%"><i></i><b><span class="adi-fp__script">פיסטוק</span></b></span>
+    <span class="adi-fp__lbl adi-fp__lbl--l" style="--x:28%;--y:59%"><i></i><b><span class="adi-fp__script">ליבת מנגו </span><br /><span class="adi-fp__script">בשוקולד לבן</span></b></span>
+    <span class="adi-fp__lbl adi-fp__lbl--r" style="--x:84%;--y:79%"><i></i><b><span class="adi-fp__script">חותכים - </span><br /><span class="adi-fp__script">והפטל מציץ</span></b></span>
     <div class="adi-fp__saved-bar" aria-hidden="true">
       <svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg>
       <svg viewBox="0 0 24 24"><path class="adi-fp__bm" d="M6 2h12a1 1 0 0 1 1 1v19l-7-5-7 5V3a1 1 0 0 1 1-1z"/></svg></div>
