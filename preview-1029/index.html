@@ -13,7 +13,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <style>/*<![CDATA[*/
 @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700;900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Playpen+Sans+Hebrew:wght@600;800&display=swap&text=-.%3A%3F%D7%90%D7%91%D7%92%D7%93%D7%94%D7%95%D7%96%D7%97%D7%98%D7%99%D7%9A%D7%9B%D7%9C%D7%9D%D7%9E%D7%9F%D7%A0%D7%A1%D7%A2%D7%A3%D7%A4%D7%A5%D7%A6%D7%A7%D7%A8%D7%A9%D7%AA%E2%80%A6%20');
+@import url('https://fonts.googleapis.com/css2?family=Playpen+Sans+Hebrew:wght@600;800&display=swap&text=%2C-.%3A%D7%90%D7%91%D7%92%D7%93%D7%94%D7%95%D7%96%D7%97%D7%98%D7%99%D7%9A%D7%9B%D7%9C%D7%9D%D7%9E%D7%9F%D7%A0%D7%A1%D7%A2%D7%A4%D7%A5%D7%A6%D7%A7%D7%A8%D7%A9%D7%AA%E2%80%A6%20');
 
 .adi-fp{--cream:#FFF6EC;--paper:#FFFDF9;--ink:#33231A;--cocoa:#26150F;--cocoa-2:#3A2219;--rasp:#E0434F;--rasp-d:#B8303D;--berry:#8F2A42;
   --mango:#FFA62B;--sun:#FFC94A;--peach:#FFDDBF;--line:#EBD8C4;
@@ -388,6 +388,22 @@
 .adi-fp .adi-fp__sign svg{width:30px;height:30px;color:var(--rasp);animation:adi-bob 2.4s ease-in-out infinite}
 
 /* the line they remember */
+/* "אם גם את…" opening (pain sheet) */
+.adi-fp .adi-fp__if{background:var(--paper);border-radius:26px;padding:22px 22px 24px;margin:6px 0 34px;box-shadow:0 16px 34px -24px rgba(51,35,26,.55)}
+.adi-fp .adi-fp__if-h{font-size:28px;line-height:1.2;color:var(--rasp-d);margin-bottom:10px}
+.adi-fp .adi-fp__if ul{display:grid;gap:10px}
+.adi-fp .adi-fp__if li{position:relative;padding-right:24px;font-size:18px;line-height:1.5}
+.adi-fp .adi-fp__if li::before{content:"?";position:absolute;right:0;top:.1em;font-weight:900;color:var(--rasp)}
+.adi-fp .adi-fp__if b{font-weight:700}
+.adi-fp .adi-fp__if-go{margin-top:18px !important;padding-top:16px;border-top:2px dashed var(--line);font-size:18px;line-height:1.55;font-weight:700}
+/* story beats + the 4 steps as "the secret" */
+.adi-fp .adi-fp__shock{font-family:var(--hand);font-weight:800;font-size:40px;line-height:1.2;color:#fff;margin:6px 0 4px !important;text-shadow:0 3px 0 rgba(184,48,61,.35)}
+.adi-fp .adi-fp__secret-h{margin-top:34px !important;font-weight:900;font-size:24px;line-height:1.35}
+.adi-fp .adi-fp__steps--secret{margin-top:18px}
+.adi-fp .adi-fp__steps small{display:block;margin-top:8px;font-weight:500;font-size:15px;line-height:1.4;color:#5A4334}
+/* lesson number above each dessert name */
+.adi-fp .adi-fp__lesson-no{display:block;font-size:12px;font-weight:700;letter-spacing:.3px;color:var(--rasp-d);margin-bottom:1px}
+.adi-fp .adi-fp__learn-sub{text-align:center;color:#E9D9C8;font-size:18px;margin:-8px 0 18px}
 /* short recap for skimmers - lemon sheet between the letter (raspberry) and the last line (cocoa) */
 .adi-fp .adi-fp__tldr{background:var(--t-lemon);text-align:center}
 .adi-fp .adi-fp__tldr h2{margin-right:auto;margin-left:auto}
@@ -628,7 +644,7 @@
   <div class="adi-fp__hero-in">
     <p class="adi-fp__frame adi-fp__in">מהמטבח של עדי</p>
     <h1 class="adi-fp__in d1">קינוחי הפירות הוויראליים,<br /> שכולם ישאלו עליהם "מאיפה&#160;קנית?" <span>ואת תעני: "הכנתי."</span></h1>
-    <p class="adi-fp__lead adi-fp__in d2">7 קינוחים קפואים, עם מצרכים מהסופר ותבנית שכבר יש לך. כמה דקות עבודה, והמקפיא עושה את השאר.</p>
+    <p class="adi-fp__lead adi-fp__in d2">7 קינוחים קפואים, עם <b>מצרכים מהסופר ותבנית שכבר יש לך.</b> כמה דקות עבודה, והמקפיא עושה את השאר.</p>
     <ul class="adi-fp__stats adi-fp__in d2"><li>7 קינוחים</li><li>7 שיעורים מצולמים</li><li>PDF לכל קינוח</li><li>גישה מיידית</li></ul>
     <a class="adi-fp__btn" href="https://secure.cardcom.solutions/EA/EA5/9co9D8v3jEyxocRL1zgNyA/PaymentSP">אני רוצה את קינוחי הפירות</a>
   </div>
@@ -641,6 +657,11 @@
 
 <div class="adi-fp__sec adi-fp__pain"><div class="adi-fp__col">
   <h2 class="adi-fp__rv">בא לך משהו מתוק. <span class="adi-fp__hl">אבל לא בא לך פרויקט.</span></h2>
+  <div class="adi-fp__if adi-fp__rv">
+    <p class="adi-fp__if-h adi-fp__script">אם גם את…</p>
+    <ul><li>רואה בפיד קינוחים שנראים כאילו יצאו מקונדיטוריה, ובטוחה <b>שזה לא משהו שמכינים בבית?</b></li><li>רוצה משהו מתוק, אבל <b>אין לך כוח למתכון עם 14 שלבים?</b></li><li>מעדיפה להכין בבית ולדעת מה נכנס לקינוח, <b>בלי לקנות תבנית מיוחדת ומצרכים מחנות אפייה?</b></li></ul>
+    <p class="adi-fp__if-go">אז תמשיכי לקרוא.<br />כי עד סוף הדף הזה תראי איך הקינוחים הוויראליים האלה <span class="adi-fp__mark">יכולים להיות אצלך במקפיא</span> - עם מצרכים מהסופר ותבנית שכבר יש לך.</p>
+  </div>
   <div class="adi-fp__split adi-fp__split--pain"><div class="adi-fp__split-a">
   <figure class="adi-fp__saved">
     <span class="adi-fp__saved-tag adi-fp__script">בא לי כזה…</span>
@@ -686,10 +707,15 @@
 
 <div class="adi-fp__sec adi-fp__turn"><div class="adi-fp__col">
   <h2 class="adi-fp__rv">זה נראה הרבה יותר מסובך ממה שזה <em>באמת.</em></h2>
-  <p class="adi-fp__rv">גם אני חשבתי ככה. כשהקינוחים האלה התחילו להופיע לי בכל הפיד, הייתי בטוחה שזה מסובך מדי, ובכלל עוד טרנד חולף.</p>
-  <p class="adi-fp__rv">אז הכנתי אחד, בדרך הכי פשוטה שיכולתי. חתכתי אותו - והייתי בשוק.</p>
+  <p class="adi-fp__big adi-fp__rv">גם אני חשבתי ככה.</p>
+  <p class="adi-fp__rv">אני מכרתי קינוחים מהבית, ואני יודעת בדיוק כמה עבודה קינוח "מרשים" יכול לדרוש.</p>
+  <p class="adi-fp__rv">אז כשהקינוחים האלה התחילו להופיע לי בכל הפיד, הייתי בטוחה שזה מסובך מדי. ובכלל, עוד טרנד חולף.</p>
+  <p class="adi-fp__rv">ובכל זאת, החלטתי לנסות. <b>בדרך הכי פשוטה שיכולתי.</b></p>
+  <p class="adi-fp__rv">הכנתי את הראשון. חתכתי אותו באמצע.</p>
+  <p class="adi-fp__shock adi-fp__script adi-fp__rv">והייתי בשוק.</p>
   <p class="adi-fp__big adi-fp__rv">בן הזוג שלי טעם, <span class="adi-fp__hl">ועד סוף היום לא נשאר אף קינוח.</span></p>
-  <div class="adi-fp__steps adi-fp__rv"><span>מקציפים.</span> <span>מערבבים.</span> <span>מרכיבים.</span> <span>מצפים בשוקולד.</span></div>
+  <p class="adi-fp__secret-h adi-fp__rv">והסוד? <span class="adi-fp__mark">4 צעדים, ואף אחד מהם לא מסובך:</span></p>
+  <div class="adi-fp__steps adi-fp__steps--secret adi-fp__rv"><span>מקציפים.<small>שמנת להקצפה וחלב מרוכז מהסופר. בלי ג'לטין.</small></span> <span>מערבבים.<small>עם הפרי שאת אוהבת. כל המחיות מ-100% פרי.</small></span> <span>מרכיבים.<small>בתבנית שכבר יש לך. אפילו תבנית קרח.</small></span> <span>מצפים בשוקולד.<small>וזה הרגע שזה נראה כאילו קנית אותו.</small></span></div>
   <div class="adi-fp__split adi-fp__split--turn">
   <div class="adi-fp__nos adi-fp__rv"><span>בלי <s>ידע בקונדיטוריה</s>.</span> <span>בלי <s>לקנות תבנית במיוחד</s>.</span></div>
   <p class="adi-fp__note-card adi-fp__rv">אני מכינה בערב, שמה במקפיא -<br />ולמחרת יש לי קינוחים מוכנים, שמחכים לרגע שבא לי משהו מתוק.</p>
@@ -716,13 +742,13 @@
   <span class="adi-fp__kicker adi-fp__rv">7 קינוחים · 7 שיעורים</span>
   <h2 class="adi-fp__rv">מה מחכה לך <span class="adi-fp__mark">במקפיא</span></h2>
   <ul class="adi-fp__list">
-    <li class="adi-fp__item adi-fp__rv" style="--c:#FF9A1F"><div class="adi-fp__pic"><img src="https://cdn.jsdelivr.net/gh/12adiezra-arch/adi-landing-assets@362c5374824160af87010629482e0c80d8b856c8/fruit-desserts/mango.jpg" width="700" height="700" loading="lazy" alt="קינוח מנגו חתוך - ליבת מנגו כתומה בציפוי שוקולד לבן" /></div><div><h3>מנגו</h3><p>קרם מנגו, ליבת מנגו וציפוי שוקולד לבן. מתוק ופירותי, כמו ביס ממנגו בשל.</p></div></li>
-    <li class="adi-fp__item adi-fp__rv" style="--c:#E0434F"><div class="adi-fp__pic"><img src="https://cdn.jsdelivr.net/gh/12adiezra-arch/adi-landing-assets@362c5374824160af87010629482e0c80d8b856c8/fruit-desserts/raspberry.jpg" width="700" height="700" loading="lazy" alt="מגנום פטל חתוך - ליבת פטל אדומה בציפוי שוקולד" /></div><div><h3>מגנום פטל</h3><p>קרם פטל, ליבת פטל וציפוי כפול - שוקולד לבן ושוקולד חלב. חמצמץ מבפנים, שוקולדי מבחוץ.</p></div></li>
-    <li class="adi-fp__item adi-fp__rv" style="--c:#D9A600"><div class="adi-fp__pic"><img src="https://cdn.jsdelivr.net/gh/12adiezra-arch/adi-landing-assets@362c5374824160af87010629482e0c80d8b856c8/fruit-desserts/lemon.jpg" width="700" height="700" loading="lazy" alt="קינוח לימון חתוך עם תחתית ביסקוויט" /></div><div><h3>לימון</h3><p>תחתית ביסקוויט פריכה, קרם לימון חמצמץ וציפוי שוקולד לבן. טעם של עוגת לימון, בביס קפוא.</p></div></li>
-    <li class="adi-fp__item adi-fp__rv" style="--c:#F07A3E"><div class="adi-fp__pic"><img src="https://cdn.jsdelivr.net/gh/12adiezra-arch/adi-landing-assets@362c5374824160af87010629482e0c80d8b856c8/fruit-desserts/peach.jpg" width="356" height="356" loading="lazy" alt="קינוח אפרסק חתוך - ליבת אפרסק בציפוי שוקולד לבן" /></div><div><h3>אפרסק</h3><p>ליבת אפרסק, קרם אפרסק עדין וציפוי שוקולד לבן. עדין וקרמי, למי שאוהבת מתוק לא כבד.</p></div></li>
+    <li class="adi-fp__item adi-fp__rv" style="--c:#FF9A1F"><div class="adi-fp__pic"><img src="https://cdn.jsdelivr.net/gh/12adiezra-arch/adi-landing-assets@362c5374824160af87010629482e0c80d8b856c8/fruit-desserts/mango.jpg" width="700" height="700" loading="lazy" alt="קינוח מנגו חתוך - ליבת מנגו כתומה בציפוי שוקולד לבן" /></div><div><h3>מנגו</h3><p>קרם מנגו, ליבת מנגו וציפוי שוקולד לבן. <b>מתוק ופירותי, כמו ביס ממנגו בשל.</b></p></div></li>
+    <li class="adi-fp__item adi-fp__rv" style="--c:#E0434F"><div class="adi-fp__pic"><img src="https://cdn.jsdelivr.net/gh/12adiezra-arch/adi-landing-assets@362c5374824160af87010629482e0c80d8b856c8/fruit-desserts/raspberry.jpg" width="700" height="700" loading="lazy" alt="מגנום פטל חתוך - ליבת פטל אדומה בציפוי שוקולד" /></div><div><h3>מגנום פטל</h3><p>קרם פטל, ליבת פטל וציפוי כפול - שוקולד לבן ושוקולד חלב. <b>חמצמץ מבפנים, שוקולדי מבחוץ.</b></p></div></li>
+    <li class="adi-fp__item adi-fp__rv" style="--c:#D9A600"><div class="adi-fp__pic"><img src="https://cdn.jsdelivr.net/gh/12adiezra-arch/adi-landing-assets@362c5374824160af87010629482e0c80d8b856c8/fruit-desserts/lemon.jpg" width="700" height="700" loading="lazy" alt="קינוח לימון חתוך עם תחתית ביסקוויט" /></div><div><h3>לימון</h3><p>תחתית ביסקוויט פריכה, קרם לימון חמצמץ וציפוי שוקולד לבן. <b>טעם של עוגת לימון, בביס קפוא.</b></p></div></li>
+    <li class="adi-fp__item adi-fp__rv" style="--c:#F07A3E"><div class="adi-fp__pic"><img src="https://cdn.jsdelivr.net/gh/12adiezra-arch/adi-landing-assets@362c5374824160af87010629482e0c80d8b856c8/fruit-desserts/peach.jpg" width="356" height="356" loading="lazy" alt="קינוח אפרסק חתוך - ליבת אפרסק בציפוי שוקולד לבן" /></div><div><h3>אפרסק</h3><p>ליבת אפרסק, קרם אפרסק עדין וציפוי שוקולד לבן. <b>עדין וקרמי, למי שאוהבת מתוק לא כבד.</b></p></div></li>
     <li class="adi-fp__item adi-fp__rv" style="--c:#A8703C"><div class="adi-fp__pic"><img src="https://cdn.jsdelivr.net/gh/12adiezra-arch/adi-landing-assets@362c5374824160af87010629482e0c80d8b856c8/fruit-desserts/banana.jpg" width="700" height="700" loading="lazy" alt="קינוח בננה וחמאת בוטנים חתוך בציפוי שוקולד חלב" /></div><div><h3>בננה, חמאת בוטנים ושוקולד</h3><p>קרם בננה, ליבת חמאת בוטנים ובננה וציפוי שוקולד חלב.</p></div></li>
-    <li class="adi-fp__item adi-fp__rv" style="--c:#7E9A33"><div class="adi-fp__pic"><img src="https://cdn.jsdelivr.net/gh/12adiezra-arch/adi-landing-assets@362c5374824160af87010629482e0c80d8b856c8/fruit-desserts/pistachio.jpg" width="700" height="700" loading="lazy" alt="קינוח פיסטוק חתוך בציפוי שוקולד לבן" /></div><div><h3>פיסטוק ושוקולד לבן</h3><p>קרם פיסטוק, ליבת פיסטוק וציפוי שוקולד לבן. פיסטוק בכל ביס, מבפנים ומלמעלה.</p></div></li>
-    <li class="adi-fp__item adi-fp__rv" style="--c:#7A4A2E"><div class="adi-fp__pic"><img src="https://cdn.jsdelivr.net/gh/12adiezra-arch/adi-landing-assets@362c5374824160af87010629482e0c80d8b856c8/fruit-desserts/pecan.jpg" width="700" height="700" loading="lazy" alt="קינוח פקאן קרמל חתוך - ליבת טופי ופקאן" /></div><div><h3>פקאן קרמל</h3><p>ליבת טופי קרמל עם פקאן, קרם טופי קרמל וציפוי שוקולד חלב. קרמל שמכינים בבית במחבת, ופקאן בכל ביס.</p></div></li>
+    <li class="adi-fp__item adi-fp__rv" style="--c:#7E9A33"><div class="adi-fp__pic"><img src="https://cdn.jsdelivr.net/gh/12adiezra-arch/adi-landing-assets@362c5374824160af87010629482e0c80d8b856c8/fruit-desserts/pistachio.jpg" width="700" height="700" loading="lazy" alt="קינוח פיסטוק חתוך בציפוי שוקולד לבן" /></div><div><h3>פיסטוק ושוקולד לבן</h3><p>קרם פיסטוק, ליבת פיסטוק וציפוי שוקולד לבן. <b>פיסטוק בכל ביס, מבפנים ומלמעלה.</b></p></div></li>
+    <li class="adi-fp__item adi-fp__rv" style="--c:#7A4A2E"><div class="adi-fp__pic"><img src="https://cdn.jsdelivr.net/gh/12adiezra-arch/adi-landing-assets@362c5374824160af87010629482e0c80d8b856c8/fruit-desserts/pecan.jpg" width="700" height="700" loading="lazy" alt="קינוח פקאן קרמל חתוך - ליבת טופי ופקאן" /></div><div><h3>פקאן קרמל</h3><p>ליבת טופי קרמל עם פקאן, קרם טופי קרמל וציפוי שוקולד חלב. <b>קרמל שמכינים בבית במחבת, ופקאן בכל ביס.</b></p></div></li>
   </ul>
 </div></div>
 
@@ -800,8 +826,26 @@
 
 
 <div class="adi-fp__sec adi-fp__learn"><div class="adi-fp__col">
-  <h2 class="adi-fp__rv">ועוד כמה דברים <span class="adi-fp__hl">שמחכים לך בפנים</span></h2>
-  <div class="adi-fp__tile adi-fp__tile--txt adi-fp__tile--all adi-fp__rv"><h3>בכל השיעורים</h3><ul><li>איך להתאים את הכמות לתבנית שיש לך.</li><li>כל המחיות מ-100% פרי.</li><li>בכל מתכון רשום גם איך להחליף לפרווה.</li></ul></div>
+  <span class="adi-fp__kicker adi-fp__rv">תוכן הקורס</span>
+  <h2 class="adi-fp__rv">הנה מה שאת מכינה איתי, <span class="adi-fp__hl">שיעור אחרי שיעור</span></h2>
+  <p class="adi-fp__learn-sub adi-fp__rv">בכל שיעור קינוח אחד, מההתחלה ועד הציפוי. הנה הצצה:</p>
+  <div class="adi-fp__mosaic">
+    <div class="adi-fp__tile adi-fp__rv"><img src="https://cdn.jsdelivr.net/gh/12adiezra-arch/adi-landing-assets@362c5374824160af87010629482e0c80d8b856c8/fruit-desserts/mango.jpg" width="700" height="700" loading="lazy" alt="קינוח מנגו חתוך - ליבת מנגו כתומה" /></div>
+    <div class="adi-fp__tile adi-fp__tile--txt adi-fp__rv" style="--t:#FFDDB0"><h3><svg class="adi-fp__fruit" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 22c-3-5 0-12 7-13 6-1 10 3 9 9-1 6-8 9-12 8-2 0-3-2-4-4z"/><path d="M20 9c.2-2.8 2.2-4.8 5-5-.8 2.8-2.2 4.2-5 5z"/></svg><span><small class="adi-fp__lesson-no">שיעור 1</small>מנגו</span></h3><ul><li>הכנת מחית מנגו</li><li>הכנת קרם מנגו משמנת מתוקה</li><li>הכנת ליבת מנגו</li><li>ציפוי הקינוח בשוקולד לבן</li></ul></div>
+    <div class="adi-fp__tile adi-fp__rv"><img src="https://cdn.jsdelivr.net/gh/12adiezra-arch/adi-landing-assets@362c5374824160af87010629482e0c80d8b856c8/fruit-desserts/raspberry.jpg" width="700" height="700" loading="lazy" alt="מגנום פטל חתוך - ליבת פטל אדומה" /></div>
+    <div class="adi-fp__tile adi-fp__tile--txt adi-fp__rv" style="--t:#FBD0DA"><h3><svg class="adi-fp__fruit" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="14" r="3"/><circle cx="18" cy="14" r="3"/><circle cx="9.5" cy="19.5" r="3"/><circle cx="15" cy="19.5" r="3"/><circle cx="20.5" cy="19.5" r="3"/><circle cx="12.3" cy="25" r="3"/><circle cx="17.7" cy="25" r="3"/><path d="M15 11V6M11 8.5c1.5 1.8 2.6 2.4 4 2.5 1.4-.1 2.5-.7 4-2.5"/></svg><span><small class="adi-fp__lesson-no">שיעור 2</small>מגנום פטל</span></h3><ul><li>הכנת מחית פטל</li><li>הכנת קרם פטל משמנת מתוקה</li><li>ציפוי כפול: שוקולד לבן ואז שוקולד חלב</li></ul></div>
+    <div class="adi-fp__tile adi-fp__tile--txt adi-fp__rv" style="--t:#FFEE9E"><h3><svg class="adi-fp__fruit" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 16l2.2-1C7.5 10 11 7 16 7s8.5 3 9.8 8L28 16l-2.2 1c-1.3 5-4.8 8-9.8 8s-8.5-3-9.8-8z"/><path d="M11 13c1.5-1.5 3-2 5-2"/></svg><span><small class="adi-fp__lesson-no">שיעור 3</small>לימון</span></h3><ul><li>הכנת תחתית ביסקוויטים פריכה</li><li>הכנת קרם לימון משמנת מתוקה</li><li>ציפוי הקינוח בשוקולד לבן</li></ul></div>
+    <div class="adi-fp__tile adi-fp__rv"><img src="https://cdn.jsdelivr.net/gh/12adiezra-arch/adi-landing-assets@362c5374824160af87010629482e0c80d8b856c8/fruit-desserts/lemon.jpg" width="700" height="700" loading="lazy" alt="קינוח לימון חתוך עם תחתית ביסקוויט" /></div>
+    <div class="adi-fp__tile adi-fp__tile--txt adi-fp__rv" style="--t:#FFD5BC"><h3><svg class="adi-fp__fruit" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 11c-6-3-11 1-11 7 0 6 5 9 11 9s11-3 11-9c0-6-5-10-11-7z"/><path d="M16 11c-1.5 4-1.5 9 0 15"/><path d="M16 11c.6-3 3.4-5 6.6-4.4-.8 3-3.4 4.4-6.6 4.4z"/></svg><span><small class="adi-fp__lesson-no">שיעור 4</small>אפרסק</span></h3><ul><li>הכנת ליבת אפרסק</li><li>הכנת קרם אפרסק משמנת מתוקה</li><li>ציפוי הקינוח בשוקולד לבן</li></ul></div>
+    <div class="adi-fp__tile adi-fp__rv"><img src="https://cdn.jsdelivr.net/gh/12adiezra-arch/adi-landing-assets@362c5374824160af87010629482e0c80d8b856c8/fruit-desserts/peach.jpg" width="356" height="356" loading="lazy" alt="קינוח אפרסק חתוך - ליבת אפרסק" /></div>
+    <div class="adi-fp__tile adi-fp__rv"><img src="https://cdn.jsdelivr.net/gh/12adiezra-arch/adi-landing-assets@362c5374824160af87010629482e0c80d8b856c8/fruit-desserts/banana.jpg" width="700" height="700" loading="lazy" alt="קינוח בננה וחמאת בוטנים חתוך בציפוי שוקולד חלב" /></div>
+    <div class="adi-fp__tile adi-fp__tile--txt adi-fp__rv" style="--t:#F3DDB8"><h3><svg class="adi-fp__fruit" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><g transform="rotate(-32 16 16) translate(0 1.5)"><path d="M4.5 11.5C6 23 21 26.5 27 13.5c-5.5 5-15.5 5.5-22.5-2z"/><path d="M27 13.5l1.6-4.4 2.1.8-1.3 4"/><path d="M4.5 11.5l-1.4-.5"/><path d="M8.8 16c4.6 3.8 11 4.1 15.4.4"/></g></svg><span><small class="adi-fp__lesson-no">שיעור 5</small>בננה, חמאת בוטנים ושוקולד</span></h3><ul><li>הכנת קרם בננה משמנת מתוקה</li><li>הכנת ליבת חמאת בוטנים ובננה</li><li>ציפוי הקינוח בשוקולד חלב</li></ul></div>
+    <div class="adi-fp__tile adi-fp__rv"><img src="https://cdn.jsdelivr.net/gh/12adiezra-arch/adi-landing-assets@362c5374824160af87010629482e0c80d8b856c8/fruit-desserts/pistachio.jpg" width="700" height="700" loading="lazy" alt="קינוח פיסטוק חתוך בציפוי שוקולד לבן" /></div>
+    <div class="adi-fp__tile adi-fp__tile--txt adi-fp__rv" style="--t:#DDEBB8"><h3><svg class="adi-fp__fruit" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 5c5 0 8 5 8 11s-3 11-8 11-8-5-8-11 3-11 8-11z"/><path d="M16 9c2.8.4 4 3.4 4 7s-1.2 6.6-4 7c-1.8-1.6-2.6-4-2.6-7s.8-5.4 2.6-7z"/></svg><span><small class="adi-fp__lesson-no">שיעור 6</small>פיסטוק ושוקולד לבן</span></h3><ul><li>הכנת קרם פיסטוק משמנת מתוקה</li><li>הכנת ליבת פיסטוק - גם מפיסטוקים שטוחנים בבית</li><li>ציפוי הקינוח בשוקולד לבן</li></ul></div>
+    <div class="adi-fp__tile adi-fp__tile--txt adi-fp__rv" style="--t:#E8CDB6"><h3><svg class="adi-fp__fruit" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 4c4.5 0 7 5 7 12s-2.5 12-7 12-7-5-7-12 2.5-12 7-12z"/><path d="M16 6c-1.6 2 1.6 4 0 6s1.6 4 0 6-1.6 4 0 6"/><path d="M12 11c.8.8 1.6 1 2.4 1M12 17c.8.8 1.6 1 2.4 1M17.6 14c.8 0 1.6-.2 2.4-1M17.6 20c.8 0 1.6-.2 2.4-1"/></svg><span><small class="adi-fp__lesson-no">שיעור 7</small>פקאן קרמל</span></h3><ul><li>הכנת קרמל במחבת</li><li>הכנת ליבת טופי קרמל ופקאן</li><li>הכנת קרם טופי קרמל משמנת מתוקה</li><li>ציפוי הקינוח בשוקולד חלב</li></ul></div>
+    <div class="adi-fp__tile adi-fp__rv"><img src="https://cdn.jsdelivr.net/gh/12adiezra-arch/adi-landing-assets@362c5374824160af87010629482e0c80d8b856c8/fruit-desserts/pecan.jpg" width="700" height="700" loading="lazy" alt="קינוח פקאן קרמל חתוך - ליבת טופי ופקאן" /></div>
+    <div class="adi-fp__tile adi-fp__tile--txt adi-fp__tile--all adi-fp__rv"><h3>ובכל השיעורים</h3><ul><li>איך להתאים את הכמות לתבנית שיש לך.</li><li>בכל מתכון רשום גם איך להחליף לפרווה.</li></ul></div>
+  </div>
   <div class="adi-fp__bonus-card adi-fp__rv"><span class="adi-fp__bonus-badge">בונוס</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="9" width="18" height="12" rx="2"/><path d="M2.5 9h19v-2.5h-19zM12 6.5V21"/><path d="M12 6.5c-1.5-3.6-6-3.6-6-1.2 0 1.2 1.6 1.2 6 1.2zM12 6.5c1.5-3.6 6-3.6 6-1.2 0 1.2-1.6 1.2-6 1.2z"/></svg><div><h3>מדריך לכל פרי</h3><p>איך להכין את הקינוחים עם כל פרי שאת רוצה.</p></div></div>
 </div></div>
 
@@ -873,6 +917,8 @@
   <details><summary>אני לא מנוסה במטבח. אצליח?</summary>
     <p>אם את יודעת להקציף שמנת ולהמיס שוקולד במיקרוגל - זה כל מה שצריך. ובכל שיעור את רואה אותי עושה כל שלב.</p>
     <p>הקינוח היחיד שדורש קצת יותר תשומת לב הוא הפקאן קרמל, כי מכינים בו קרמל במחבת. גם שם אני מראה בדיוק איך.</p></details>
+  <details><summary>למה המחיר כזה נמוך?</summary>
+    <p>כי זה מחיר השקה, רק ל-30 הרוכשות הראשונות. אחר כך המחיר עולה, בלי הודעה מוקדמת.</p></details>
   <details><summary>ואם יש לי שאלה תוך כדי הכנה?</summary>
     <p>את מקבלת את המייל האישי שלי וכותבת לי ישירות. אני עונה תוך 24 שעות בימי חול.</p></details>
   <details><summary>כמה זמן הקינוחים נשמרים?</summary>
@@ -915,8 +961,8 @@
 
 
 <div class="adi-fp__sec adi-fp__tldr"><div class="adi-fp__col">
-  <p class="adi-fp__tldr-hi adi-fp__script adi-fp__rv">ירדת ישר לסוף?</p>
-  <h2 class="adi-fp__rv">הנה הכול <span class="adi-fp__hl">בקצרה:</span></h2>
+  <p class="adi-fp__tldr-hi adi-fp__script adi-fp__rv">אם ירדת ישר עד לפה,</p>
+  <h2 class="adi-fp__rv">הנה העסקה <span class="adi-fp__hl">בקצרה:</span></h2>
   <ul class="adi-fp__tldr-list adi-fp__rv"><li>7 קינוחי פירות קפואים, כמו אלה מהפיד.</li><li>מצרכים מהסופר, תבנית שכבר יש לך, ומקפיא.</li><li>סרטון שבו אני מכינה איתך כל אחד, וחוברת עם כל הכמויות.</li></ul>
   <p class="adi-fp__tldr-price adi-fp__rv"><b>57 ₪</b>, פעם אחת, והם שלך.</p>
 </div></div>
