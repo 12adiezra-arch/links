@@ -78,6 +78,7 @@
     animation: rise .6s cubic-bezier(.2, .8, .2, 1) both;
   }
   .card:nth-child(2) { animation-delay: .12s; }
+  .card:nth-child(3) { animation-delay: .24s; }
   @keyframes rise { from { opacity: 0; transform: translateY(16px); } }
 
   .btn {
@@ -134,6 +135,29 @@
   .fruit .btn:active { box-shadow: 0 1px 0 #C46A00; }
   .fruit .note { font-size: 13px; text-align: center; margin-top: 9px; opacity: .85; }
 
+  /* Tray (coming soon) */
+  .tray { background: var(--cocoa); color: var(--cream); box-shadow: 0 10px 24px rgba(38, 21, 15, .25); }
+  .tray .pic { position: relative; aspect-ratio: 16 / 7.5; background: var(--cocoa); }
+  .tray .pic > img:not(.logo) { width: 100%; height: 100%; object-fit: cover; object-position: center 55%; display: block; }
+  .tray .pic::after {
+    content: ""; position: absolute; inset: 0;
+    background: linear-gradient(to top, var(--cocoa) 0, var(--cocoa) 6%, rgba(38, 21, 15, .55) 40%, transparent 75%);
+  }
+  .tray .pic .logo {
+    position: absolute; z-index: 1; right: 12px; bottom: 6px;
+    width: 40%; max-width: 180px; height: auto;
+    filter: drop-shadow(0 3px 10px rgba(0, 0, 0, .55));
+  }
+  .soon { background: linear-gradient(135deg, #FFE7A3, #E8B04B); }
+  .tray .body { padding: 0 16px 14px; margin-top: -2px; position: relative; }
+  .tray .lead { font-size: 15px; font-weight: 500; }
+  .tray .btn {
+    margin-top: 12px;
+    background: linear-gradient(135deg, #FFE7A3, #E8B04B); color: var(--cocoa);
+    box-shadow: 0 4px 0 #A8741F;
+  }
+  .tray .btn:active { box-shadow: 0 1px 0 #A8741F; }
+
   /* Kit */
   .kit {
     background: #fff;
@@ -174,6 +198,8 @@
     .kit { padding: 10px; }
     .kit img { width: 52px; }
     .kit { grid-template-columns: 52px 1fr; }
+    .tray .pic { aspect-ratio: 16 / 5.5; }
+    .tray .pic .logo { width: 32%; }
   }
 
   /* Footer */
@@ -252,18 +278,16 @@
     text-decoration: none !important;
     border: 0 !important;
     border-radius: 999px !important;
-    background: var(--mango) !important;
+    background: linear-gradient(135deg, #FFE7A3, #E8B04B) !important;
     color: var(--cocoa) !important;
     font-size: 18px !important; font-weight: 700 !important;
-    box-shadow: 0 4px 0 #C46A00 !important;
+    box-shadow: 0 4px 0 #A8741F !important;
     cursor: pointer;
   }
   #waitlist .rm-form .submitButton * { color: var(--cocoa) !important; font-weight: 700 !important; }
-  #waitlist .rm-form .submitButton:active { transform: scale(.97); box-shadow: 0 1px 0 #C46A00 !important; }
+  #waitlist .rm-form .submitButton:active { transform: scale(.97); box-shadow: 0 1px 0 #A8741F !important; }
 
   a:focus-visible { outline: 3px solid var(--mango); outline-offset: 3px; }
-  /* Fairy dust: full-page canvas drawn by the script at the end of the page; never blocks taps */
-  .fairy { position: fixed; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 5; }
   @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after { animation: none !important; transition: none !important; }
   }
@@ -279,9 +303,25 @@
     </header>
 
     <div class="cards">
+      <section class="card tray" aria-labelledby="tray-title">
+        <div class="pic">
+          <span class="badge soon"><i></i>עולה בקרוב</span>
+          <img src="img/tray.webp" width="900" height="787" alt="מגש אירוח עם קינוחים: מלבי, כוסיות, פבלובות, כדורי אוראו ונקניק שוקולד">
+          <img class="logo" src="img/logo-tray.webp" width="560" height="387" alt="">
+        </div>
+        <div class="body">
+          <h2 id="tray-title" class="sr-only">מגש של מיליון דולר</h2>
+          <p class="lead">4 מגשים, 20 קינוחים. תהיי זאת שכולם מחכים לראות מה היא הביאה.</p>
+          <a class="btn" href="#waitlist" id="waitlist-btn" aria-controls="waitlist">
+            אני רוצה לקבל ראשונה
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg>
+          </a>
+        </div>
+      </section>
+
       <section class="card fruit" aria-labelledby="fruit-title">
         <div class="pic">
-          <span class="badge"><i></i>נפתח עכשיו</span>
+          <span class="badge"><i></i>זמין עכשיו</span>
           <img src="img/fruit.webp" width="720" height="540" alt="קופסה עם קינוחי פירות קפואים בציפוי שוקולד">
           <img class="logo" src="img/logo-fruit.webp" width="520" height="237" alt="">
         </div>
@@ -324,90 +364,44 @@
     </footer>
   </main>
 
+  <!-- Tray waitlist sheet. The Rav Messer form script writes the form in place while the page loads,
+       so it has to stay inline here; the sheet only shows and hides it. -->
+  <div class="sheet" id="waitlist" role="dialog" aria-modal="true" aria-labelledby="sheet-title">
+    <div class="sheet-panel">
+      <button class="sheet-close" type="button" aria-label="סגירה">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+      <h2 id="sheet-title">רשימת ההמתנה למגש של מיליון דולר</h2>
+      <p>כשהמגש עולה, את מקבלת ממני מייל ראשונה.</p>
+      <div class="rm-form">
+        <script type="text/javascript" src="https://form2.ravpage.co.il/8553b94437cb5a08bf4dd3b8e5c9a3bb6AEF5ADA" charset="UTF-8"></script>
+      </div>
+    </div>
+  </div>
+
   <script>
-    // Old story links pointed at the waitlist form (links.adiiiezra.co.il/#waitlist); send them to the sales page
-    if (location.hash === '#waitlist') location.replace('https://adiiiezra.ravpage.co.il/%D7%A7%D7%95%D7%A8%D7%A1%D7%A7%D7%99%D7%A0%D7%95%D7%97%D7%99%D7%A4%D7%99%D7%A8%D7%95%D7%AA?utm_source=ig&utm_medium=social&utm_content=links_page');
-  </script>
-  <script>
-    // Fairy dust: a few glowing "wands" fly loops over the page (around the photo, across the page and around
-    // the reminder button) and shed glitter that drifts down, twinkles and fades. Off for reduced-motion users.
     (function () {
-      if (!window.matchMedia || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-      var cv = document.createElement('canvas'), ctx = cv.getContext('2d');
-      cv.className = 'fairy'; cv.setAttribute('aria-hidden', 'true'); document.body.appendChild(cv);
-      var W, H, dpr;
-      function size() { dpr = Math.min(window.devicePixelRatio || 1, 2); W = innerWidth; H = innerHeight; cv.width = W * dpr; cv.height = H * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0); }
-      size(); addEventListener('resize', size);
-
-      // Iridescent palette: gold, rose, lilac, aqua, peach, white
-      var COLORS = ['255,208,96', '255,138,196', '190,150,255', '120,224,255', '255,178,130', '255,255,255'];
-      function glow(c) {
-        var s = document.createElement('canvas'); s.width = s.height = 64; var g = s.getContext('2d');
-        var r = g.createRadialGradient(32, 32, 0, 32, 32, 32);
-        r.addColorStop(0, 'rgba(255,255,255,1)'); r.addColorStop(.2, 'rgba(' + c + ',.95)');
-        r.addColorStop(.5, 'rgba(' + c + ',.3)'); r.addColorStop(1, 'rgba(' + c + ',0)');
-        g.fillStyle = r; g.fillRect(0, 0, 64, 64); return s;
+      var sheet = document.getElementById('waitlist');
+      var opener = document.getElementById('waitlist-btn');
+      function open(e) {
+        if (e) e.preventDefault();
+        sheet.classList.add('open');
+        document.body.style.overflow = 'hidden';
+        var first = sheet.querySelector('.rm-form input:not([type=hidden])');
+        if (first) setTimeout(function () { first.focus(); }, 250);
       }
-      function star(c) {
-        var s = glow(c), g = s.getContext('2d');
-        g.globalCompositeOperation = 'lighter'; g.strokeStyle = 'rgba(255,255,255,.9)'; g.lineWidth = 1.6;
-        g.beginPath(); g.moveTo(32, 2); g.lineTo(32, 62); g.moveTo(2, 32); g.lineTo(62, 32); g.stroke();
-        return s;
+      function close() {
+        sheet.classList.remove('open');
+        document.body.style.overflow = '';
+        if (location.hash === '#waitlist') history.replaceState(null, '', location.pathname + location.search);
+        opener.focus();
       }
-      var DOTS = COLORS.map(glow), STARS = COLORS.map(star);
-
-      var parts = [], MAX = 900;
-      function dust(x, y, n, burst) {
-        for (var i = 0; i < n && parts.length < MAX; i++) {
-          var a = Math.random() * 6.283, sp = burst ? .05 + Math.random() * .12 : Math.random() * .03;
-          parts.push({ x: x, y: y, vx: Math.cos(a) * sp, vy: Math.sin(a) * sp - (burst ? .02 : 0),
-            age: 0, life: 900 + Math.random() * 1400, r: 2 + Math.random() * 4,
-            c: (Math.random() * COLORS.length) | 0, st: Math.random() < .12, tw: Math.random() * 6.283 });
-        }
-      }
-
-      function bez(a, b, c, d, t) { var u = 1 - t; return [u*u*u*a[0] + 3*u*u*t*b[0] + 3*u*t*t*c[0] + t*t*t*d[0], u*u*u*a[1] + 3*u*u*t*b[1] + 3*u*t*t*c[1] + t*t*t*d[1]]; }
-      var btn = document.querySelector('.fruit .btn'), photo = document.querySelector('.me img');
-      function box(el, pad) { var r = el.getBoundingClientRect(); return { x: r.left + r.width / 2, y: r.top + r.height / 2, rx: r.width / 2 + pad, ry: r.height / 2 + pad }; }
-      function loop(b, t, dir) { var a = t * 6.283 * dir; return [b.x + b.rx * Math.cos(a), b.y - b.ry * Math.sin(a)]; }
-      // Each path: t in 0..1 -> point. Mirrored versions fly the other way.
-      var PATHS = [
-        function (t, m) { var b = box(btn, 12); if (t < .35) return bez([-.08*W, .14*H], [.35*W, -.06*H], [1.02*W, .22*H], [b.x + b.rx, b.y], t / .35);
-          if (t < .75) return loop(b, (t - .35) / .4, 1); return bez([b.x + b.rx, b.y], [1.05*W, b.y + .1*H], [.7*W, 1.0*H], [.35*W, 1.1*H], (t - .75) / .25); },
-        function (t) { var b = box(photo, 16); if (t < .33) return bez([1.08*W, .4*H], [.8*W, .45*H], [.95*W, b.y], [b.x + b.rx, b.y], t / .33);
-          if (t < .7) return loop(b, (t - .33) / .37, -1); return bez([b.x + b.rx, b.y], [.7*W, .35*H], [.1*W, .3*H], [-.1*W, .05*H], (t - .7) / .3); },
-        function (t) { var b = box(btn, 10), a = t * 3.3 * Math.PI, r = 1 - t; return [b.x + (W * .55) * r * Math.cos(a + Math.PI), b.y - (H * .45) * r * Math.sin(a + Math.PI)]; },
-        function (t) { var a = t * 6.283; return [W * (.5 + .46 * Math.sin(a)), H * (.5 + .38 * Math.sin(2 * a))]; }
-      ];
-      // [path, mirrored, start (ms in the cycle), duration (ms), burst at the end]
-      var WANDS = [[0, 0, 0, 5200], [1, 0, 2600, 5000], [2, 0, 6000, 3600, 1], [0, 1, 8600, 5200], [3, 0, 11000, 7000], [2, 1, 14600, 3600, 1]];
-      var CYCLE = 18000, prev = {}, last = performance.now(), t0 = last;
-
-      function frame(now) {
-        var dt = Math.min(now - last, 50); last = now;
-        ctx.clearRect(0, 0, W, H);
-        for (var w = 0; w < WANDS.length; w++) {
-          var wd = WANDS[w], t = (((now - t0 - wd[2]) % CYCLE) + CYCLE) % CYCLE / wd[3];
-          if (t > 1) { if (prev[w] && wd[4]) { dust(prev[w][0], prev[w][1], 45, true); } prev[w] = null; continue; }
-          var p = PATHS[wd[0]](t); if (wd[1]) p[0] = W - p[0];
-          var q = prev[w]; prev[w] = p;
-          if (q) { var dist = Math.hypot(p[0] - q[0], p[1] - q[1]), n = Math.min(16, 1 + dist * .8);
-            for (var k = 0; k < n; k++) dust(q[0] + (p[0] - q[0]) * k / n, q[1] + (p[1] - q[1]) * k / n, 1); }
-          var fade = Math.min(1, t / .06, (1 - t) / .06), hs = 26 + 6 * Math.sin(now / 90);
-          ctx.globalAlpha = fade; ctx.drawImage(STARS[0], p[0] - hs / 2, p[1] - hs / 2, hs, hs);
-          ctx.globalAlpha = fade * .8; ctx.drawImage(DOTS[5], p[0] - 9, p[1] - 9, 18, 18);
-        }
-        for (var i = parts.length - 1; i >= 0; i--) {
-          var o = parts[i]; o.age += dt;
-          if (o.age > o.life) { parts.splice(i, 1); continue; }
-          o.vy += .000035 * dt; o.vx *= .985; o.vy *= .985; o.x += o.vx * dt; o.y += o.vy * dt;
-          var k2 = 1 - o.age / o.life, a2 = k2 * (.55 + .45 * Math.sin(o.tw + o.age * .018)), s2 = o.r * (o.st ? 5 : 3.2) * (.6 + .4 * k2);
-          ctx.globalAlpha = Math.max(0, a2); ctx.drawImage((o.st ? STARS : DOTS)[o.c], o.x - s2 / 2, o.y - s2 / 2, s2, s2);
-        }
-        ctx.globalAlpha = 1;
-        requestAnimationFrame(frame);
-      }
-      requestAnimationFrame(frame);
+      opener.addEventListener('click', open);
+      sheet.querySelector('.sheet-close').addEventListener('click', close);
+      sheet.addEventListener('click', function (e) { if (e.target === sheet) close(); });
+      document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && sheet.classList.contains('open')) close(); });
+      // Story links can open the form directly: links.adiiiezra.co.il/#waitlist
+      if (location.hash === '#waitlist') open();
     })();
   </script>
 </body>
