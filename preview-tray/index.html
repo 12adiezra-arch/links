@@ -152,6 +152,12 @@
   .soon { background: linear-gradient(135deg, #FFE7A3, #E8B04B); }
   .tray .body { padding: 0 16px 14px; margin-top: -2px; position: relative; }
   .tray .lead { font-size: 15px; font-weight: 500; }
+  .tray .btn {
+    margin-top: 12px;
+    background: linear-gradient(135deg, #FFE7A3, #E8B04B); color: var(--cocoa);
+    box-shadow: 0 4px 0 #A8741F;
+  }
+  .tray .btn:active { box-shadow: 0 1px 0 #A8741F; }
 
   /* Kit */
   .kit {
@@ -273,14 +279,14 @@
     text-decoration: none !important;
     border: 0 !important;
     border-radius: 999px !important;
-    background: var(--mango) !important;
+    background: linear-gradient(135deg, #FFE7A3, #E8B04B) !important;
     color: var(--cocoa) !important;
     font-size: 18px !important; font-weight: 700 !important;
-    box-shadow: 0 4px 0 #C46A00 !important;
+    box-shadow: 0 4px 0 #A8741F !important;
     cursor: pointer;
   }
   #waitlist .rm-form .submitButton * { color: var(--cocoa) !important; font-weight: 700 !important; }
-  #waitlist .rm-form .submitButton:active { transform: scale(.97); box-shadow: 0 1px 0 #C46A00 !important; }
+  #waitlist .rm-form .submitButton:active { transform: scale(.97); box-shadow: 0 1px 0 #A8741F !important; }
 
   a:focus-visible { outline: 3px solid var(--mango); outline-offset: 3px; }
   @media (prefers-reduced-motion: reduce) {
@@ -307,6 +313,7 @@
         <div class="body">
           <h2 id="tray-title" class="sr-only">מגש של מיליון דולר</h2>
           <p class="lead">4 מגשים, 20 קינוחים. תהיי זאת שכולם מחכים לראות מה היא הביאה.</p>
+          <a class="btn" href="#waitlist" id="waitlist-btn" aria-controls="waitlist">אני רוצה לקבל ראשונה</a>
         </div>
       </section>
 
@@ -355,9 +362,45 @@
     </footer>
   </main>
 
+  <!-- Tray waitlist sheet. The Rav Messer form script writes the form in place while the page loads,
+       so it has to stay inline here; the sheet only shows and hides it. -->
+  <div class="sheet" id="waitlist" role="dialog" aria-modal="true" aria-labelledby="sheet-title">
+    <div class="sheet-panel">
+      <button class="sheet-close" type="button" aria-label="סגירה">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+      <h2 id="sheet-title">רשימת ההמתנה למגש של מיליון דולר</h2>
+      <p>כשהמגש עולה, את מקבלת ממני מייל ראשונה.</p>
+      <div class="rm-form">
+        <script type="text/javascript" src="https://form2.ravpage.co.il/8553b94437cb5a08bf4dd3b8e5c9a3bb6AEF5ADA" charset="UTF-8"></script>
+      </div>
+    </div>
+  </div>
+
   <script>
-    // Old story links pointed at the waitlist form (links.adiiiezra.co.il/#waitlist); send them to the sales page
-    if (location.hash === '#waitlist') location.replace('https://adiiiezra.ravpage.co.il/%D7%A7%D7%95%D7%A8%D7%A1%D7%A7%D7%99%D7%A0%D7%95%D7%97%D7%99%D7%A4%D7%99%D7%A8%D7%95%D7%AA?utm_source=ig&utm_medium=social&utm_content=links_page');
+    (function () {
+      var sheet = document.getElementById('waitlist');
+      var opener = document.getElementById('waitlist-btn');
+      function open(e) {
+        if (e) e.preventDefault();
+        sheet.classList.add('open');
+        document.body.style.overflow = 'hidden';
+        var first = sheet.querySelector('.rm-form input:not([type=hidden])');
+        if (first) setTimeout(function () { first.focus(); }, 250);
+      }
+      function close() {
+        sheet.classList.remove('open');
+        document.body.style.overflow = '';
+        if (location.hash === '#waitlist') history.replaceState(null, '', location.pathname + location.search);
+        opener.focus();
+      }
+      opener.addEventListener('click', open);
+      sheet.querySelector('.sheet-close').addEventListener('click', close);
+      sheet.addEventListener('click', function (e) { if (e.target === sheet) close(); });
+      document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && sheet.classList.contains('open')) close(); });
+      // Story links can open the form directly: links.adiiiezra.co.il/#waitlist
+      if (location.hash === '#waitlist') open();
+    })();
   </script>
 </body>
 </html>
