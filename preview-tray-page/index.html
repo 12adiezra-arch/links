@@ -1,0 +1,505 @@
+<!doctype html><html lang="he" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>מגש של מיליון דולר - תצוגה</title><style>body{margin:0;background:#f3eef0}</style></head><body><div class="adi-tr" dir="rtl">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@500;700;800;900&family=Assistant:wght@400;600;700;800&family=Amatic+SC:wght@700&display=swap');
+.adi-tr{--pink:#E0457B;--rasp:#C41E5C;--deep:#8A1244;--blush:#FFF0F5;--blush2:#FFE3EC;--cream:#FFF8F1;--gold:#FFD27A;--gold2:#E9B95A;--ink:#3B1A2A;--soft:#7A5566;
+ font-family:Assistant,Arial,sans-serif;color:var(--ink);background:#fff;line-height:1.55;font-size:17px;max-width:640px;margin:0 auto;overflow:hidden;text-align:right}
+.adi-tr *{box-sizing:border-box;margin:0;padding:0}
+.adi-tr img{display:block;max-width:100%}
+.adi-tr a{text-decoration:none}
+.adi-tr .sec{padding:56px 24px;position:relative}
+.adi-tr .c{text-align:center}
+.adi-tr h2{font:900 33px/1.15 Rubik,Arial,sans-serif;margin-bottom:16px;letter-spacing:-.3px}
+.adi-tr h3{font:800 22px/1.25 Rubik,Arial,sans-serif;margin-bottom:6px}
+.adi-tr p{margin-bottom:12px}
+.adi-tr b,.adi-tr strong{font-weight:800}
+.adi-tr .hl{color:var(--rasp)}
+.adi-tr .gold{color:var(--gold)}
+.adi-tr .hand{font-family:'Amatic SC',Assistant,sans-serif;font-weight:700;letter-spacing:.3px}
+.adi-tr .mark{background:linear-gradient(transparent 56%,var(--blush2) 56% 92%,transparent 92%);padding:0 3px}
+.adi-tr .kick{display:inline-block;font:800 13px Assistant;letter-spacing:.6px;color:var(--rasp);background:var(--blush2);padding:5px 13px;border-radius:30px;margin-bottom:14px}
+.adi-tr .btn{display:block;text-align:center;padding:18px 20px;border-radius:44px;background:linear-gradient(135deg,var(--pink),var(--rasp));color:#fff;font:900 20px Rubik,Arial,sans-serif;box-shadow:0 12px 26px rgba(196,30,92,.32),inset 0 -3px 0 rgba(0,0,0,.12);margin:26px auto 0;max-width:380px}
+.adi-tr .btn--w{background:#fff;color:var(--rasp);box-shadow:0 0 0 6px rgba(255,255,255,.2),0 14px 30px rgba(60,0,25,.35)}
+.adi-tr .btn-sub{text-align:center;font-size:14px;opacity:.75;margin-top:10px}
+
+/* hero */
+.adi-tr .hero{position:relative;color:#fff;text-align:center;padding:46px 24px 92px;overflow:hidden}
+.adi-tr .hero__bg{position:absolute;inset:0;z-index:0}
+.adi-tr .hero__bg img{width:100%;height:100%;object-fit:cover}
+.adi-tr .hero__bg:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,92,145,.55) 0%,rgba(196,30,92,.8) 45%,rgba(120,14,58,.94) 100%)}
+.adi-tr .hero>*:not(.hero__bg){position:relative;z-index:1}
+.adi-tr .pill{display:inline-block;font:700 14px Assistant;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.55);padding:6px 15px;border-radius:30px}
+.adi-tr .hero h1{font:900 46px/1.05 Rubik,Arial,sans-serif;margin:22px 0 18px;text-shadow:0 4px 18px rgba(80,0,30,.35);letter-spacing:-.5px}
+.adi-tr .hero h1 span{color:var(--gold)}
+.adi-tr .hero__sub{font-weight:600;font-size:18px;max-width:340px;margin:0 auto;color:#fff3f7}
+.adi-tr .hero__sub b{color:var(--gold)}
+.adi-tr .stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:26px auto 0;max-width:380px}
+.adi-tr .stats div{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.38);border-radius:16px;padding:11px 6px}
+.adi-tr .stats strong{display:block;font:900 27px Rubik;color:var(--gold);line-height:1.05}
+.adi-tr .stats span{font:700 14px Assistant}
+.adi-tr .wave{position:absolute;bottom:-1px;right:0;left:0;height:56px;background:var(--blush);clip-path:ellipse(72% 100% at 50% 100%);z-index:1}
+
+/* identify */
+.adi-tr .s-id{background:var(--blush)}
+.adi-tr .s-id h2 small{display:block;font:800 22px/1.3 Rubik;color:var(--rasp);margin-top:6px}
+.adi-tr .ifu{font:800 19px Rubik;margin:22px 0 10px}
+.adi-tr .ticks{list-style:none}
+.adi-tr .ticks li{background:#fff;border-radius:16px;padding:14px 50px 14px 16px;margin-bottom:10px;position:relative;box-shadow:0 6px 16px rgba(196,30,92,.08);font-weight:600}
+.adi-tr .ticks li:before{content:"✓";position:absolute;right:14px;top:13px;width:26px;height:26px;border-radius:50%;background:var(--pink);color:#fff;font:900 15px/26px Rubik;text-align:center}
+.adi-tr .opts{display:grid;gap:10px;margin:14px 0 18px}
+.adi-tr .opt{border:2px dashed #f0b3c8;border-radius:16px;padding:14px 50px 14px 16px;position:relative;color:var(--soft);font-weight:600;background:rgba(255,255,255,.5)}
+.adi-tr .opt:before{content:"✕";position:absolute;right:15px;top:13px;color:#d77;font:900 18px Rubik}
+.adi-tr .third{font:900 24px/1.25 Rubik;text-align:center;margin-top:22px}
+.adi-tr .third span{display:block;font:600 17px Assistant;color:var(--soft);margin-top:4px}
+
+/* villain */
+.adi-tr .s-vil{background:#fff}
+.adi-tr .grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:20px 0}
+.adi-tr .tile{background:var(--cream);border:1.5px solid #f3dccb;border-radius:18px;padding:16px 14px;font-weight:700;font-size:15.5px;line-height:1.4}
+.adi-tr .tile i{display:block;font-style:normal;font:900 30px Rubik;color:var(--pink);opacity:.35;line-height:1;margin-bottom:6px}
+.adi-tr .punch{background:linear-gradient(135deg,var(--pink),var(--rasp));color:#fff;border-radius:20px;padding:20px;font:800 20px/1.35 Rubik;text-align:center;box-shadow:0 12px 26px rgba(196,30,92,.25)}
+
+/* turn */
+.adi-tr .s-turn{background:linear-gradient(180deg,var(--rasp),var(--deep));color:#fff}
+.adi-tr .s-turn h2 span{color:var(--gold)}
+.adi-tr .s-turn p{color:#ffe9f0}
+.adi-tr .quote{font:700 40px/1 'Amatic SC';color:var(--gold);text-align:center;margin:18px 0 8px}
+.adi-tr .ones{display:grid;gap:12px;margin:22px 0}
+.adi-tr .one{background:#fff;color:var(--ink);border-radius:20px;padding:18px 18px 16px 18px;display:flex;gap:14px;align-items:flex-start}
+.adi-tr .one b{flex:0 0 46px;height:46px;border-radius:50%;background:var(--blush2);color:var(--rasp);font:900 22px/46px Rubik;text-align:center}
+.adi-tr .one h3{font-size:20px;color:var(--rasp)}
+.adi-tr .one p{margin:0;color:var(--soft);font-size:15.5px}
+.adi-tr .nos{text-align:center;font-weight:700;color:#fff;font-size:16px}
+
+/* belief */
+.adi-tr .s-bel{background:var(--gold);text-align:center;padding:44px 24px}
+.adi-tr .s-bel h2{color:var(--deep);margin-bottom:8px}
+.adi-tr .s-bel p{font-weight:700;font-size:18px;margin:0}
+.adi-tr .s-bel .hand{font-size:44px;color:var(--rasp);line-height:1;margin-top:8px}
+
+/* trays */
+.adi-tr .s-trays{background:var(--blush)}
+.adi-tr .tray{border-radius:26px;overflow:hidden;margin-top:26px;box-shadow:0 16px 34px rgba(80,20,45,.14);background:#fff}
+.adi-tr .tray__img{position:relative}
+.adi-tr .tray__img img{width:100%;height:250px;object-fit:cover}
+.adi-tr .tray__num{position:absolute;top:14px;right:14px;background:#fff;color:var(--rasp);font:900 15px Rubik;padding:6px 13px;border-radius:30px;box-shadow:0 4px 12px rgba(0,0,0,.15)}
+.adi-tr .tray__body{padding:20px 20px 10px}
+.adi-tr .tray__body h3{font-size:28px;margin:0}
+.adi-tr .tray__tag{font:700 28px/1.1 'Amatic SC';color:var(--rasp);margin:2px 0 8px}
+.adi-tr .tray__moment{font-weight:700;margin-bottom:8px}
+.adi-tr .chips{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px}
+.adi-tr .chips span{font:700 13px Assistant;padding:4px 11px;border-radius:30px;background:var(--blush2);color:var(--rasp)}
+.adi-tr .dish{display:flex;gap:12px;align-items:center;padding:10px 0;border-top:1px solid rgba(0,0,0,.07)}
+.adi-tr .dish img{flex:0 0 66px;width:66px;height:66px;border-radius:50%;object-fit:cover;border:3px solid #fff;box-shadow:0 4px 10px rgba(0,0,0,.14)}
+.adi-tr .dish strong{display:block;font:800 16.5px Rubik}
+.adi-tr .dish span{font-size:14.5px;color:var(--soft);line-height:1.35;display:block}
+.adi-tr .tray--1 .tray__body{background:#FBF3E8}
+.adi-tr .tray--2 .tray__body{background:#EEF5EF}
+.adi-tr .tray--2 .tray__tag{color:#5f8a6c}
+.adi-tr .tray--2 .chips span{background:#dcebdf;color:#46705a}
+.adi-tr .tray--3 .tray__body{background:#FFE6EF}
+.adi-tr .tray--4 .tray__body{background:#2E1A16;color:#F3E6D6}
+.adi-tr .tray--4 .tray__tag{color:var(--gold2)}
+.adi-tr .tray--4 .chips span{background:#4a2c25;color:#f0d9b5}
+.adi-tr .tray--4 .dish{border-color:rgba(255,255,255,.1)}
+.adi-tr .tray--4 .dish span{color:#cdb8a6}
+.adi-tr .tray--4 .dish img{border-color:#4a2c25}
+
+/* home + how */
+.adi-tr .s-home{background:#fff}
+.adi-tr .feat{display:flex;gap:14px;align-items:flex-start;margin-top:18px}
+.adi-tr .feat i{flex:0 0 52px;height:52px;border-radius:16px;background:var(--blush);font-style:normal;font-size:26px;line-height:52px;text-align:center}
+.adi-tr .feat h3{font-size:19px;margin-bottom:2px}
+.adi-tr .feat p{margin:0;color:var(--soft)}
+.adi-tr .s-how{background:var(--cream)}
+.adi-tr .steps{list-style:none;position:relative;margin-top:22px}
+.adi-tr .steps:before{content:"";position:absolute;right:22px;top:10px;bottom:10px;border-right:2px dashed #f0b3c8}
+.adi-tr .steps li{position:relative;padding:0 64px 22px 0}
+.adi-tr .steps li b{position:absolute;right:0;top:0;width:46px;height:46px;border-radius:50%;background:linear-gradient(135deg,var(--pink),var(--rasp));color:#fff;font:900 20px/46px Rubik;text-align:center;box-shadow:0 6px 14px rgba(196,30,92,.3)}
+.adi-tr .steps h3{font-size:19px;margin:8px 0 2px}
+.adi-tr .steps p{margin:0;color:var(--soft)}
+
+/* reveal */
+.adi-tr .s-rev{background:linear-gradient(160deg,#ff6f9f,var(--rasp) 55%,var(--deep));color:#fff;text-align:center;padding-top:50px}
+.adi-tr .s-rev .lead{font:800 21px Rubik;opacity:.95}
+.adi-tr .s-rev .logo{width:300px;margin:6px auto 4px;filter:drop-shadow(0 8px 18px rgba(60,0,25,.35))}
+.adi-tr .s-rev .sum{font-weight:700;font-size:18px;max-width:340px;margin:0 auto}
+.adi-tr .s-inc{background:#fff}
+.adi-tr .chap{position:relative;background:var(--blush);border-radius:22px;padding:18px 18px 16px 18px;margin-top:14px;overflow:hidden;display:flex;gap:14px;align-items:center}
+.adi-tr .chap img{flex:0 0 84px;width:84px;height:84px;border-radius:18px;object-fit:cover}
+.adi-tr .chap em{position:absolute;left:12px;top:-14px;font:900 92px/1 Rubik;font-style:normal;color:var(--pink);opacity:.13}
+.adi-tr .chap h3{font-size:20px;margin-bottom:4px}
+.adi-tr .chap p{margin:0;font-size:14.5px;color:var(--soft);line-height:1.45}
+.adi-tr .pdf{background:var(--cream);border-radius:22px;padding:20px;margin-top:22px}
+.adi-tr .pdf h3{font-size:19px;margin-bottom:10px}
+.adi-tr .pdf li{list-style:none;padding-right:26px;position:relative;margin-bottom:8px;font-weight:600}
+.adi-tr .pdf li:before{content:"✦";position:absolute;right:0;color:var(--pink)}
+.adi-tr .plus{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:22px}
+.adi-tr .plus div{border:1.5px solid #f6c9d8;border-radius:18px;padding:14px;text-align:center}
+.adi-tr .plus i{display:block;font-style:normal;font-size:28px}
+.adi-tr .plus strong{display:block;font:800 17px Rubik;color:var(--rasp)}
+.adi-tr .plus span{font-size:14px;color:var(--soft);line-height:1.35;display:block}
+.adi-tr .ticker{background:var(--rasp);color:#fff;font:800 15px Assistant;white-space:nowrap;overflow:hidden;padding:11px 0}
+.adi-tr .ticker span{display:inline-block;padding-right:100%;animation:adiTrTick 26s linear infinite}
+@keyframes adiTrTick{from{transform:translateX(0)}to{transform:translateX(100%)}}
+
+/* proof */
+.adi-tr .s-proof{background:#fff;background-image:radial-gradient(#fbd3df 1.4px,transparent 1.5px);background-size:22px 22px}
+.adi-tr .s-proof .note{color:var(--soft);font-weight:600}
+.adi-tr .shots{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding:8px 2px 16px;margin:16px -24px 0;padding-right:24px;padding-left:24px}
+.adi-tr .shots img{flex:0 0 auto;height:340px;width:auto;border-radius:18px;box-shadow:0 10px 24px rgba(80,20,45,.18);scroll-snap-align:center;background:#fff}
+.adi-tr .swipe{text-align:center;font-size:14px;color:var(--soft)}
+
+/* price */
+.adi-tr .s-price{background:linear-gradient(180deg,var(--rasp),var(--deep));color:#fff;text-align:center}
+.adi-tr .s-price h2 span{color:var(--gold)}
+.adi-tr .card{background:#fff;color:var(--ink);border-radius:26px;padding:24px 20px;margin-top:20px;box-shadow:0 20px 40px rgba(40,0,15,.35)}
+.adi-tr .cmp{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:14px 0}
+.adi-tr .cmp div{border-radius:16px;padding:12px 8px}
+.adi-tr .cmp .them{background:#f6f1f3;color:var(--soft)}
+.adi-tr .cmp .them strong{text-decoration:line-through;text-decoration-color:#d23f72}
+.adi-tr .cmp .me{background:var(--blush2)}
+.adi-tr .cmp small{display:block;font-weight:700;font-size:13.5px}
+.adi-tr .cmp strong{display:block;font:900 30px Rubik;line-height:1.15}
+.adi-tr .cmp .me strong{color:var(--rasp)}
+.adi-tr .cmp em{font-style:normal;font-size:12.5px;display:block}
+.adi-tr .big{font:900 64px/1 Rubik;color:var(--rasp);margin:10px 0 0}
+.adi-tr .big small{font-size:30px}
+.adi-tr .once{font-weight:700;color:var(--soft)}
+.adi-tr .launch{display:inline-block;background:var(--gold);color:var(--deep);font:900 15px Rubik;padding:6px 14px;border-radius:30px;margin:14px 0 4px}
+.adi-tr .bump{border:2.5px dashed var(--gold2);background:#FFF9EC;border-radius:18px;padding:16px;margin-top:18px;text-align:right}
+.adi-tr .bump small{display:block;font:800 13px Assistant;color:#a5761f;letter-spacing:.4px}
+.adi-tr .bump strong{display:block;font:900 19px Rubik;margin:2px 0}
+.adi-tr .bump p{margin:0;font-size:15px;color:var(--soft)}
+.adi-tr .bump p b{color:var(--rasp)}
+.adi-tr .secure{font-size:14px;color:var(--soft);margin-top:10px}
+
+/* about */
+.adi-tr .s-about{background:var(--cream);text-align:center}
+.adi-tr .s-about img{width:150px;height:150px;border-radius:50%;object-fit:cover;margin:0 auto 14px;border:5px solid #fff;box-shadow:0 10px 24px rgba(80,20,45,.18)}
+.adi-tr .s-about p{text-align:right}
+.adi-tr .sig{font:700 34px 'Amatic SC';color:var(--rasp);text-align:center;margin-top:6px}
+
+/* for */
+.adi-tr .s-for{background:var(--blush)}
+.adi-tr .not{margin-top:14px;font-weight:600;color:var(--soft);text-align:center}
+
+/* faq */
+.adi-tr .s-faq{background:#fff}
+.adi-tr .q{border-radius:18px;background:var(--blush);padding:16px 18px;margin-top:12px}
+.adi-tr .q h3{font-size:17.5px;margin-bottom:4px}
+.adi-tr .q p{margin:0;color:var(--soft);font-size:16px}
+
+/* heart + recap + close */
+.adi-tr .s-heart{background:linear-gradient(180deg,#fff,var(--blush));text-align:center}
+.adi-tr .s-heart .hand{font-size:36px;color:var(--rasp);line-height:1.1;margin-bottom:10px}
+.adi-tr .s-recap{background:var(--blush)}
+.adi-tr .recap{background:#fff;border-radius:24px;padding:22px 20px;box-shadow:0 12px 28px rgba(196,30,92,.1)}
+.adi-tr .recap .hand{font-size:28px;color:var(--rasp);text-align:center}
+.adi-tr .recap li{list-style:none;padding-right:26px;position:relative;margin-bottom:10px;font-weight:600}
+.adi-tr .recap li:before{content:"✦";position:absolute;right:0;color:var(--pink)}
+.adi-tr .recap .end{font:900 20px Rubik;text-align:center;color:var(--rasp);margin-top:10px}
+.adi-tr .s-close{background:linear-gradient(160deg,#ff6f9f,var(--rasp) 55%,var(--deep));color:#fff;text-align:center;padding:60px 24px 70px}
+.adi-tr .s-close p{font-size:19px;font-weight:600;margin:0}
+.adi-tr .s-close .hand{font-size:46px;color:var(--gold);line-height:1.1;margin-top:10px}
+
+/* sticky */
+.adi-tr .sticky{position:sticky;bottom:0;z-index:20;padding:10px 14px calc(10px + env(safe-area-inset-bottom));background:rgba(255,255,255,.94);border-top:1px solid #f6c9d8}
+.adi-tr .sticky a{display:block;text-align:center;padding:14px;border-radius:40px;background:linear-gradient(135deg,var(--pink),var(--rasp));color:#fff;font:900 17px Rubik}
+@media (min-width:641px){.adi-tr .hero h1{font-size:54px}}
+@media (max-width:350px){.adi-tr .hero h1{font-size:39px}.adi-tr h2{font-size:29px}.adi-tr .grid2,.adi-tr .plus{grid-template-columns:1fr}}
+</style>
+
+<!-- 1 hero -->
+<section class="hero">
+ <div class="hero__bg"><img src="img/hero.jpg" width="900" height="1125" alt="מגש של קינוחי שוקולד: טארטלטים, בארק, קנולי ורוקי רואד"></div>
+ <span class="pill">מהמטבח של עדי</span>
+ <h1>תהיי זאת<br>שכולם מחכים<br>לראות <span>מה היא<br>הביאה.</span></h1>
+ <p class="hero__sub">4 מגשים לרגעים שבהם <b>כולם מגיעים</b>: שישי בערב, שבת בבוקר, יום הולדת, ו"אני אביא קינוח". 20 מנות שנראות כמו מאירוע, וכולן מוכנות באותו יום.</p>
+ <div class="stats">
+  <div><strong>4</strong><span>מגשים לרגעים אחרים</span></div>
+  <div><strong>20</strong><span>שיעורים מצולמים</span></div>
+  <div><strong>1</strong><span>רשימת קניות לכל מגש</span></div>
+  <div><strong>✓</strong><span>גישה מיידית</span></div>
+ </div>
+ <a class="btn btn--w" href="#CARDCOM-LINK-MISSING">אני רוצה את המגשים</a>
+ <div class="wave"></div>
+</section>
+
+<div class="body">
+
+<!-- 2 identify -->
+<section class="sec s-id">
+ <h2 class="c">"מחר כולם אצלך."<small>או: "אני אביא קינוח." ועכשיו?</small></h2>
+ <p class="ifu">אם גם את…</p>
+ <ul class="ticks">
+  <li>אמרת "אני אביא קינוח", ואז מצאת את עצמך מול המדף בסופר עם עוגה בקופסה?</li>
+  <li>רוצה שהשולחן ייראה כמו באירוע, אבל לא מוכנה לבלות יום שלם במטבח?</li>
+  <li>מכינה כל פעם את אותה עוגה, כי היא היחידה שבטוח יוצאת?</li>
+ </ul>
+ <p><b>אז תמשיכי לקרוא.</b> כי עד סוף הדף הזה תראי איך את מגיעה עם מגש שכולם מצלמים, בלי להפוך את זה לפרויקט.</p>
+ <p class="ifu">עד היום היו לך שתי אפשרויות:</p>
+ <div class="opts">
+  <div class="opt">להזמין מגש קינוחים מוכן, ולשלם עליו יותר מ-200 ₪. על אירוע אחד.</div>
+  <div class="opt">לחפש חמישה מתכונים ברשת, לעשות חמש רשימות קניות, ולגלות בשבע בערב שמשהו עוד לא התייצב.</div>
+ </div>
+ <p class="third">יש גם אפשרות שלישית.<span>ועוד רגע אראה לך אותה.</span></p>
+</section>
+
+<!-- 2.5 villain -->
+<section class="sec s-vil">
+ <div class="c"><span class="kick">רגע של אמת</span></div>
+ <h2 class="c">הקינוחים הם <span class="hl">לא</span> החלק הקשה.</h2>
+ <p class="c">כל קינוח לבד? פשוט. מה שהופך מגש לפרויקט זה כל מה שמסביב:</p>
+ <div class="grid2">
+  <div class="tile"><i>01</i>חמישה מתכונים, כל אחד מאתר אחר</div>
+  <div class="tile"><i>02</i>חמש רשימות קניות שחוזרות על עצמן</div>
+  <div class="tile"><i>03</i>מה מתחילים קודם? מה צריך מקרר? מה מחכה לסוף?</div>
+  <div class="tile"><i>04</i>ואיך מסדרים שייראה מרשים ולא כמו ערימה?</div>
+ </div>
+ <div class="punch">הבעיה היא לא את.<br>הבעיה היא שאף אחד לא נתן לך את התמונה המלאה.</div>
+</section>
+
+<!-- 3 turn -->
+<section class="sec s-turn">
+ <h2 class="c">מגש מרשים <span>לא חייב</span><br>להיות מגש מסובך.</h2>
+ <p><b>אני יודעת כמה עבודה זה יכול להיות.</b> מכרתי קינוחים מהבית, ואני מכירה מקרוב את הלילות במטבח לפני אירוע.</p>
+ <p>בגלל זה החלטתי לעשות את זה אחרת: לקחת את המגשים שנראים הכי מושקעים, ולהפוך אותם לדרך הכי פשוטה שאני יכולה.</p>
+ <p>כשהנחתי את המגש על השולחן, הדבר הראשון ששמעתי היה</p>
+ <p class="quote">"וואו."</p>
+ <p class="c"><b>נראה כאילו השקעת. בפועל? הכול מוכן באותו יום.</b></p>
+ <p class="c" style="margin-top:18px">והסוד? כל מגש בנוי כמו תוכנית אחת, לא כמו חמישה מתכונים:</p>
+ <div class="ones">
+  <div class="one"><b>1</b><div><h3>רשימת קניות אחת</h3><p>כל מה שצריך למגש, במקום אחד. והרבה מצרכים חוזרים בין הקינוחים.</p></div></div>
+  <div class="one"><b>2</b><div><h3>סדר עבודה אחד</h3><p>מה מתחילים קודם, מה נכנס למקרר ומה מחכה לסוף. מתחילים כמה שעות לפני, וזהו.</p></div></div>
+  <div class="one"><b>3</b><div><h3>סידור אחד</h3><p>תמונה של המגש עם חץ לכל מנה, כדי שתדעי בדיוק איפה מה עומד.</p></div></div>
+ </div>
+ <p class="nos">בלי להשאיר דברים לילה במקרר · בלי ציוד מקצועי · בלי מצרכים מחנות אפייה</p>
+</section>
+
+<!-- 3.5 belief -->
+<section class="s-bel">
+ <h2>את לא צריכה להיות מארחת מקצועית.</h2>
+ <p>אם את יודעת להמיס שוקולד, למלא כוסות ולסדר דברים על מגש,</p>
+ <p class="hand">את מוכנה.</p>
+</section>
+
+<!-- 4 trays -->
+<section class="sec s-trays">
+ <div class="c"><span class="kick">מה מחכה לך</span></div>
+ <h2 class="c">4 רגעים. 4 מגשים.</h2>
+
+ <article class="tray tray--1">
+  <div class="tray__img"><img src="img/tray1.jpg" width="800" height="640" loading="lazy" alt="מגש שישי בערב: נקניק שוקולד, מלבי, כדורי אוראו, כוסיות דובאי ופבלובה"><span class="tray__num">מגש 1</span></div>
+  <div class="tray__body">
+   <h3>שישי בערב</h3>
+   <p class="tray__tag">רגעים קטנים של ביחד</p>
+   <p class="tray__moment">הארוחה כמעט מוכנה, ומישהו שואל "יש משהו לקינוח?"</p>
+   <div class="chips"><span>פרווה</span><span>בלי תנור</span></div>
+   <div class="dish"><img src="img/salami.jpg" width="360" height="360" loading="lazy" alt="נקניק שוקולד"><div><strong>נקניק שוקולד</strong><span>פרוסות שוקולד עם ביסקוויט וציפוי קוקוס</span></div></div>
+<div class="dish"><img src="img/malabi.jpg" width="360" height="360" loading="lazy" alt="מלבי"><div><strong>מלבי</strong><span>קרמי, עם סירופ ופיסטוקים מעל</span></div></div>
+<div class="dish"><img src="img/oreo.jpg" width="360" height="360" loading="lazy" alt="כדורי אוראו"><div><strong>כדורי אוראו</strong><span>כדורים נימוחים בפירורי אוראו</span></div></div>
+<div class="dish"><img src="img/dubai.jpg" width="360" height="360" loading="lazy" alt="כוסיות דובאי"><div><strong>כוסיות דובאי</strong><span>קדאיף פיסטוק פריך, קרם שוקולד ועוד שכבת קדאיף</span></div></div>
+<div class="dish"><img src="img/pavlova.jpg" width="360" height="360" loading="lazy" alt="פבלובה"><div><strong>פבלובה</strong><span>קן מרנג, קרם וניל וכפית ריבת שזיפים</span></div></div>
+  </div>
+ </article>
+
+ <article class="tray tray--2">
+  <div class="tray__img"><img src="img/tray2.jpg" width="800" height="640" loading="lazy" alt="מגש שבת בבוקר: טירמיסו, יוגורט וגרנולה, טארטלטים, קפרזה וקרואסונים"><span class="tray__num">מגש 2</span></div>
+  <div class="tray__body">
+   <h3>שבת בבוקר</h3>
+   <p class="tray__tag">לאט יותר. מתוק יותר.</p>
+   <p class="tray__moment">כולם מגיעים אלייך, והשולחן נראה כמו בראנץ' בבית קפה.</p>
+   <div class="chips"><span>חלבי</span><span>מתוק-מלוח</span><span>תנור לכמה דקות</span></div>
+   <div class="dish"><img src="img/tiramisu.jpg" width="360" height="360" loading="lazy" alt="כוסות טירמיסו"><div><strong>כוסות טירמיסו</strong><span>בישקוטים טבולים בקפה, קרם וניל וקקאו</span></div></div>
+<div class="dish"><img src="img/yogurt.jpg" width="360" height="360" loading="lazy" alt="כוסות יוגורט וגרנולה"><div><strong>כוסות יוגורט וגרנולה</strong><span>יוגורט סמיך, גרנולה, רימון וסילאן</span></div></div>
+<div class="dish"><img src="img/tartlet.jpg" width="360" height="360" loading="lazy" alt="טארטלטים תרד ופטה"><div><strong>טארטלטים תרד ופטה</strong><span>קלתיות פריכות במילוי תרד ופטה</span></div></div>
+<div class="dish"><img src="img/caprese.jpg" width="360" height="360" loading="lazy" alt="שיפודי קפרזה"><div><strong>שיפודי קפרזה</strong><span>עגבניות שרי, מוצרלה ובזיליקום</span></div></div>
+<div class="dish"><img src="img/croissant.jpg" width="360" height="360" loading="lazy" alt="מיני קרואסונים"><div><strong>מיני קרואסונים</strong><span>קרואסון טרי עם מוצרלה ומעט רוקט</span></div></div>
+  </div>
+ </article>
+
+ <article class="tray tray--3">
+  <div class="tray__img"><img src="img/tray3.jpg" width="800" height="640" loading="lazy" alt="מגש יום הולדת: קאפקייקס, חיתוכיות, קורנפלקס בשוקולד, עוגת ביסקוויטים ומיני פנקייקים"><span class="tray__num">מגש 3</span></div>
+  <div class="tray__body">
+   <h3>יש לנו יום הולדת</h3>
+   <p class="tray__tag">קצת צבע. הרבה מתוק. מלא WOW.</p>
+   <p class="tray__moment">מסיבה בבית או בגן, וכל ההורים יראו מה הבאת.</p>
+   <div class="chips"><span>בלי אגוזים</span><span>בלי שיפודים</span><span>תנור רק לקאפקייקס</span></div>
+   <div class="dish"><img src="img/cupcake.jpg" width="360" height="360" loading="lazy" alt="קאפקייקס שוקולד"><div><strong>קאפקייקס שוקולד</strong><span>הכול בקערה אחת</span></div></div>
+<div class="dish"><img src="img/bars.jpg" width="360" height="360" loading="lazy" alt="חיתוכיות שוקולד"><div><strong>חיתוכיות שוקולד</strong><span>ביסקוויט ושוקולד, שכבת שוקולד מבריקה וסוכריות צבעוניות</span></div></div>
+<div class="dish"><img src="img/cornflakes.jpg" width="360" height="360" loading="lazy" alt="קורנפלקס בשוקולד"><div><strong>קורנפלקס בשוקולד</strong><span>ערימות פריכות של קורנפלקס ושוקולד</span></div></div>
+<div class="dish"><img src="img/biscuit.jpg" width="360" height="360" loading="lazy" alt="עוגת ביסקוויטים"><div><strong>עוגת ביסקוויטים</strong><span>שכבות ביסקוויט וקרם, ישר בתוך התבנית</span></div></div>
+<div class="dish"><img src="img/pancake.jpg" width="360" height="360" loading="lazy" alt="ערימת מיני פנקייקים"><div><strong>ערימת מיני פנקייקים</strong><span>ערימה זהובה עם זילוף סילאן</span></div></div>
+  </div>
+ </article>
+
+ <article class="tray tray--4">
+  <div class="tray__img"><img src="img/tray4.jpg" width="800" height="640" loading="lazy" alt="מגש השוקולד: רוקי רואד, עוגת גבינה שוקולד, טארטלטים גנאש, בארק וקנולי"><span class="tray__num">מגש 4</span></div>
+  <div class="tray__body">
+   <h3>אני אביא קינוח</h3>
+   <p class="tray__tag">שוקולד. בלי פשרות.</p>
+   <p class="tray__moment">את מוזמנת לחברות, ואמרת "אני אביא קינוח".</p>
+   <div class="chips"><span>שורד שעה-שעתיים בדרך</span><span>בלי תנור</span></div>
+   <div class="dish"><img src="img/rocky.jpg" width="360" height="360" loading="lazy" alt="רוקי רואד"><div><strong>רוקי רואד</strong><span>קוביות עבות של שוקולד, מרשמלו ואגוזים</span></div></div>
+<div class="dish"><img src="img/cheesecake.jpg" width="360" height="360" loading="lazy" alt="צנצנות עוגת גבינה שוקולד"><div><strong>צנצנות עוגת גבינה שוקולד</strong><span>בסיס ביסקוויט, קרם גבינה ושוקולד</span></div></div>
+<div class="dish"><img src="img/ganache.jpg" width="360" height="360" loading="lazy" alt="טארטלטים גנאש שוקולד"><div><strong>טארטלטים גנאש שוקולד</strong><span>גנאש מבריק ופתיתי מלח</span></div></div>
+<div class="dish"><img src="img/bark.jpg" width="360" height="360" loading="lazy" alt="בארק שוקולד"><div><strong>בארק שוקולד</strong><span>שיש של שוקולד מריר, חלב ולבן, עם פופקורן, בייגלה ואגוזים</span></div></div>
+<div class="dish"><img src="img/cannoli.jpg" width="360" height="360" loading="lazy" alt="קנולי מגליליות ופל"><div><strong>קנולי מגליליות ופל</strong><span>גליליות ופל פריכות במילוי קרם גבינה ושוקולד</span></div></div>
+  </div>
+ </article>
+
+ <a class="btn" href="#CARDCOM-LINK-MISSING">אני רוצה את המגשים</a>
+</section>
+
+<!-- 5 home -->
+<section class="sec s-home">
+ <h2 class="c">לא צריך לעבור<br>בחנות אפייה.</h2>
+ <div class="feat"><i>🛒</i><div><h3>המצרכים</h3><p>מהסופר. והרבה מהם חוזרים בין הקינוחים, אז לא קונים עשרה דברים חדשים לכל מגש.</p></div></div>
+ <div class="feat"><i>🍽️</i><div><h3>הציוד</h3><p>לא צריך ציוד מקצועי. את המגשים קניתי במקס סטוק, וכל מגש הגשה שיש לך יעבוד.</p></div></div>
+ <div class="feat"><i>⏰</i><div><h3>הזמן</h3><p>הכול מוכן באותו יום. בכל מגש כתוב בדיוק כמה שעות לפני מתחילים.</p></div></div>
+</section>
+
+<!-- 5.5 how -->
+<section class="sec s-how">
+ <h2 class="c">ככה זה עובד.<br><span class="hl">הכי פשוט שיש.</span></h2>
+ <ol class="steps">
+  <li><b>1</b><h3>בוחרת רגע</h3><p>שישי, שבת בבוקר, יום הולדת, או "אני אביא קינוח".</p></li>
+  <li><b>2</b><h3>קונה מרשימה אחת</h3><p>כל מה שצריך למגש, ברשימה אחת.</p></li>
+  <li><b>3</b><h3>מכינה יחד איתי</h3><p>שיעור קצר לכל מנה, וסדר עבודה שאומר לך מה עכשיו ומה אחר כך.</p></li>
+  <li><b>4</b><h3>מסדרת לפי התמונה</h3><p>ו... זה הרגע שכולם מוציאים טלפון.</p></li>
+ </ol>
+</section>
+
+<!-- 6 reveal -->
+<section class="sec s-rev">
+ <p class="lead">בדיוק בשביל זה יצרתי את</p>
+ <img class="logo" src="img/logo.png" width="900" height="604" loading="lazy" alt="מגש של מיליון דולר">
+ <p class="sum">4 מגשים. 20 מנות. כל מה שצריך כדי להגיע עם מגש שכולם מדברים עליו.</p>
+</section>
+<div class="ticker"><span>שישי בערב · שבת בבוקר · יש לנו יום הולדת · אני אביא קינוח · 20 מנות · הכול מוכן באותו יום · שישי בערב · שבת בבוקר · יש לנו יום הולדת · אני אביא קינוח · 20 מנות · הכול מוכן באותו יום ·</span></div>
+
+<section class="sec s-inc">
+ <h2 class="c">הנה מה שאת מכינה איתי,<br><span class="hl">מגש אחרי מגש</span></h2>
+ <div class="chap"><em>1</em><img src="img/tray1.jpg" width="800" height="640" loading="lazy" alt=""><div><h3>שישי בערב</h3><p>נקניק שוקולד · מלבי · כדורי אוראו · כוסיות דובאי · פבלובה</p></div></div>
+ <div class="chap"><em>2</em><img src="img/tray2.jpg" width="800" height="640" loading="lazy" alt=""><div><h3>שבת בבוקר</h3><p>כוסות טירמיסו · כוסות יוגורט וגרנולה · טארטלטים תרד ופטה · שיפודי קפרזה · מיני קרואסונים</p></div></div>
+ <div class="chap"><em>3</em><img src="img/tray3.jpg" width="800" height="640" loading="lazy" alt=""><div><h3>יש לנו יום הולדת</h3><p>קאפקייקס שוקולד · חיתוכיות שוקולד · קורנפלקס בשוקולד · עוגת ביסקוויטים · ערימת מיני פנקייקים</p></div></div>
+ <div class="chap"><em>4</em><img src="img/tray4.jpg" width="800" height="640" loading="lazy" alt=""><div><h3>אני אביא קינוח</h3><p>רוקי רואד · צנצנות עוגת גבינה שוקולד · טארטלטים גנאש שוקולד · בארק שוקולד · קנולי מגליליות ופל</p></div></div>
+ <div class="pdf">
+  <h3>ולכל מגש יש גם מדריך PDF:</h3>
+  <ul>
+   <li>רשימת קניות מלאה</li>
+   <li>סדר עבודה: מתי מתחילים ומה עושים בכל שלב</li>
+   <li>איך מסדרים את המגש, עם תמונה וחץ לכל מנה</li>
+   <li>ובמגש השוקולד: איך מובילים אותו בלי שיתפרק בדרך</li>
+  </ul>
+ </div>
+ <h3 class="c" style="margin-top:26px">וחוץ מהשיעורים, יש לך גם:</h3>
+ <div class="plus">
+  <div><i>♾️</i><strong>שלך לתמיד</strong><span>חוזרת לשיעורים מתי שבא לך, בלי הגבלת זמן</span></div>
+  <div><i>📱</i><strong>מהטלפון</strong><span>צופה מהטלפון, מהמחשב או מהטאבלט</span></div>
+  <div><i>🖨️</i><strong>להדפסה</strong><span>כל המדריכים ב-PDF, להורדה ולהדפסה</span></div>
+  <div><i>💌</i><strong>אני כאן</strong><span>כותבת לי במייל, ואני עונה תוך 24 שעות בימי חול</span></div>
+ </div>
+</section>
+
+<!-- 7 proof -->
+<section class="sec s-proof"><h2 class="c">אל תאמיני לי.<br><span class="hl">תאמיני להן.</span></h2><p class="c note">מה כתבו לי בנות שכבר הכינו איתי את קינוחי הפירות:</p><div class="shots"><img src="img/proof-1.jpg" width="900" height="613" loading="lazy" alt="צילום מסך של הודעה מלקוחה שהכינה מקינוחי הפירות"><img src="img/proof-3.jpg" width="900" height="1948" loading="lazy" alt="צילום מסך של הודעה מלקוחה שהכינה מקינוחי הפירות"><img src="img/proof-2.jpg" width="322" height="627" loading="lazy" alt="צילום מסך של הודעה מלקוחה שהכינה מקינוחי הפירות"><img src="img/proof-6.jpg" width="900" height="1860" loading="lazy" alt="צילום מסך של הודעה מלקוחה שהכינה מקינוחי הפירות"><img src="img/proof-4.jpg" width="800" height="600" loading="lazy" alt="צילום מסך של הודעה מלקוחה שהכינה מקינוחי הפירות"><img src="img/proof-5.jpg" width="800" height="600" loading="lazy" alt="צילום מסך של הודעה מלקוחה שהכינה מקינוחי הפירות"></div><p class="swipe">החליקי לעוד ←</p></section>
+
+<!-- 8 price -->
+<section class="sec s-price" id="price">
+ <h2>אם כבר להביא משהו,<br><span>שיהיה המגש שכולם זוכרים.</span></h2>
+ <div class="card">
+  <p><b>4 מגשים, 20 שיעורים ומדריך מלא לכל מגש.</b><br>כמה עולה להזמין מגש קינוחים מוכן לאירוע?</p>
+  <div class="cmp">
+   <div class="them"><small>מגש מוכן</small><strong>200+ ₪</strong><em>על מגש אחד, לאירוע אחד</em></div>
+   <div class="me"><small>אצלי</small><strong>57 ₪</strong><em>4 מגשים, ומכינה שוב ושוב</em></div>
+  </div>
+  <p><b>וכל זה, בפחות משליש ממחיר של מגש מוכן אחד.</b></p>
+  <span class="launch">מחיר השקה</span>
+  <p class="big">57<small> ₪</small></p>
+  <p class="once">תשלום אחד · אחר כך המחיר עולה, בלי הודעה מוקדמת</p>
+  <div class="bump">
+   <small>הצעה רק בהזמנה הזו</small>
+   <strong>הוסיפי גם את קינוחי הפירות 🥭</strong>
+   <p>7 קינוחים קפואים. <b>שניהם יחד ב-99 ₪ בלבד</b>, במקום 114 ₪. בוחרים בדף התשלום.</p>
+  </div>
+  <a class="btn" href="#CARDCOM-LINK-MISSING">אני רוצה את המגשים</a>
+  <p class="secure">תשלום מאובטח · הגישה נשלחת מיד למייל<br>נתקעת בתשלום? כותבת לי במייל, ואני עוזרת.</p>
+ </div>
+</section>
+
+<!-- 9 about -->
+<section class="sec s-about">
+ <img src="img/adi.jpg" width="800" height="800" loading="lazy" alt="עדי עזרא במטבח">
+ <h2>היי, אני עדי.</h2>
+ <p>מכרתי קינוחים מהבית, ואני יודעת בדיוק כמה עבודה עומדת מאחורי קינוח שנראה "מושקע".</p>
+ <p>בגלל זה החלטתי לא לבנות עסק על אפייה ומכירה, אלא ללמד את הדרך הכי פשוטה שיש: מעט מצרכים, מינימום התעסקות, וטעם שבאמת עושה חשק.</p>
+ <p>את רוב הקינוחים שלי הכנתי במטבח רגיל, עם מה שהיה בבית.</p>
+ <p class="sig">טעים כמו שרציתי, פשוט כמו שאני צריכה.</p>
+</section>
+
+<!-- 10 for -->
+<section class="sec s-for">
+ <h2 class="c">למי זה מתאים?</h2>
+ <ul class="ticks">
+  <li>למי שאמרה "אני אביא קינוח" ורוצה להגיע עם משהו שמדברים עליו</li>
+  <li>למי שמארחת בשישי או בשבת ורוצה שולחן שנראה כמו מאירוע</li>
+  <li>למי שמכינה יום הולדת בבית או בגן</li>
+  <li>למי שאוהבת להכין, אבל לא מוכנה לבלות יום שלם במטבח</li>
+  <li>גם למי שאין לה ניסיון במטבח</li>
+ </ul>
+ <p class="not">פחות מתאים למי שמחפשת קינוחים דיאטטיים או ללא סוכר.</p>
+</section>
+
+<!-- 11 faq -->
+<section class="sec s-faq">
+ <h2 class="c">שאלות נפוצות</h2>
+ <div class="q"><h3>זה תשלום חד פעמי? ולכמה זמן זה פתוח לי?</h3><p>כן. משלמים פעם אחת, בלי מנוי ובלי חיובים נוספים. והשיעורים נשארים אצלך בלי הגבלת זמן.</p></div>
+<div class="q"><h3>איך מקבלים את זה? אפשר מהטלפון?</h3><p>מיד אחרי התשלום מגיע אלייך מייל עם קישור. לוחצים וצופים, מהטלפון, מהמחשב או מהטאבלט.</p></div>
+<div class="q"><h3>אפשר להכין רק מגש אחד? או רק כמה מנות?</h3><p>בטח. כל מגש עומד בפני עצמו, וכל מנה יש לה שיעור משלה. אפשר להכין רק את מה שבא לך.</p></div>
+<div class="q"><h3>כמה זמן לפני צריך להתחיל?</h3><p>הכול מוכן באותו יום. בכל מדריך כתוב בדיוק מתי מתחילים ומה עושים בכל שלב.</p></div>
+<div class="q"><h3>צריך תנור?</h3><p>בשישי בערב ובמגש השוקולד - לא. בשבת בבוקר התנור עובד רק כמה דקות לטארטלטים, וביום ההולדת רק לקאפקייקס.</p></div>
+<div class="q"><h3>מה פרווה ומה חלבי?</h3><p>שישי בערב פרווה כולו. שבת בבוקר, יום ההולדת ומגש השוקולד חלביים.</p></div>
+<div class="q"><h3>מגש יום ההולדת מתאים לילדים קטנים?</h3><p>כן. אין בו אגוזים, שיפודים או ענבים שלמים.</p></div>
+<div class="q"><h3>מגש השוקולד יחזיק בדרך?</h3><p>כן. כל הקינוחים בו שורדים שעה-שעתיים בלי מקרר, ובמדריך יש גם איך להוביל אותו.</p></div>
+<div class="q"><h3>צריך ציוד מיוחד?</h3><p>לא. את המגשים שלי קניתי במקס סטוק. לצנצנות עוגת הגבינה צריך צנצנות קטנות עם מכסה.</p></div>
+<div class="q"><h3>אני לא מנוסה במטבח. אצליח?</h3><p>אם את יודעת להמיס שוקולד ולמלא כוסות - זה כל מה שצריך. ובכל שיעור את רואה אותי עושה כל שלב.</p></div>
+<div class="q"><h3>למה המחיר כזה נמוך?</h3><p>כי זה מחיר השקה. אחר כך המחיר עולה, בלי הודעה מוקדמת.</p></div>
+<div class="q"><h3>ואם יש לי שאלה תוך כדי הכנה?</h3><p>כותבת לי במייל, ואני עונה תוך 24 שעות בימי חול.</p></div>
+</section>
+
+<!-- 12 heart -->
+<section class="sec s-heart">
+ <p class="hand">רגע לפני שאת מחליטה</p>
+ <p>יש משהו ברגע הזה, כשאת נכנסת עם מגש וכולם מסתובבים.</p>
+ <p>בניתי את המגשים האלה בשביל הרגע הזה, בלי שתצטרכי לבלות בשבילו יום שלם במטבח.</p>
+ <p><b>ואני ממש מחכה לראות איזה מגש תביאי.</b></p>
+</section>
+
+<!-- 13 recap -->
+<section class="sec s-recap">
+ <div class="recap">
+  <p class="hand">אם את כמוני ירדת ישר עד לפה,</p>
+  <h2 class="c">הנה העסקה בקצרה:</h2>
+  <ul>
+   <li>4 מגשים לרגעים שבהם כולם מגיעים: שישי בערב, שבת בבוקר, יום הולדת ו"אני אביא קינוח".</li>
+   <li>20 מנות, ושיעור מצולם לכל אחת.</li>
+   <li>לכל מגש: רשימת קניות אחת, סדר עבודה ותמונה איך מסדרים.</li>
+   <li>הכול מוכן באותו יום, עם מצרכים מהסופר.</li>
+  </ul>
+  <p class="end">57 ₪. פעם אחת. והם שלך, בלי הגבלת זמן.</p>
+  <p class="c" style="color:var(--soft);font-weight:600;margin:0">ואם בא לך גם את קינוחי הפירות - שניהם יחד ב-99 ₪.</p>
+ </div>
+</section>
+
+<div class="sticky"><a href="#CARDCOM-LINK-MISSING">אני רוצה את המגשים · 57 ₪</a></div>
+</div>
+
+<!-- 14 close -->
+<section class="s-close">
+ <p>הרגע שבו כולם עומדים מסביב למגש, ומישהי שואלת:</p>
+ <p class="hand">"רגע, את הכנת את כל זה?"</p>
+ <a class="btn btn--w" href="#CARDCOM-LINK-MISSING">אני רוצה את המגשים</a>
+</section>
+</div>
+</body></html>
