@@ -94,7 +94,7 @@
   .btn:active { transform: scale(.97); }
   .btn svg { width: 18px; height: 18px; flex: none; }
 
-  /* Fruit (coming soon) */
+  /* Fruit */
   .fruit { background: var(--cocoa); color: var(--cream); box-shadow: 0 10px 24px rgba(38, 21, 15, .25); }
   .fruit .pic { position: relative; aspect-ratio: 16 / 8; }
   .fruit .pic > img:not(.logo) { width: 100%; height: 100%; object-fit: cover; object-position: center 40%; display: block; }
@@ -135,7 +135,7 @@
   .fruit .btn:active { box-shadow: 0 1px 0 #C46A00; }
   .fruit .note { font-size: 13px; text-align: center; margin-top: 9px; opacity: .85; }
 
-  /* Tray (coming soon) */
+  /* Tray (live since 12.11) */
   .tray { background: var(--cocoa); color: var(--cream); box-shadow: 0 10px 24px rgba(38, 21, 15, .25); }
   .tray .pic { position: relative; aspect-ratio: 16 / 7.5; background: var(--cocoa); }
   .tray .pic > img:not(.logo) { width: 100%; height: 100%; object-fit: cover; object-position: center 55%; display: block; }
@@ -217,76 +217,6 @@
     .btn:hover { transform: translateY(-2px); }
     .social a:hover { background: var(--berry); }
   }
-  /* Waitlist sheet */
-  .sheet {
-    position: fixed; inset: 0; z-index: 50;
-    background: rgba(38, 21, 15, .55);
-    display: flex; align-items: flex-end; justify-content: center;
-    opacity: 0; visibility: hidden;
-    transition: opacity .25s ease, visibility .25s;
-  }
-  .sheet.open { opacity: 1; visibility: visible; }
-  /* Rav Messer's form CSS sets visibility on its own elements, which would leave invisible
-     but tappable bits over the page while the sheet is closed. */
-  .sheet:not(.open), .sheet:not(.open) * { visibility: hidden !important; pointer-events: none !important; }
-  .sheet-panel {
-    position: relative;
-    width: 100%; max-width: 460px;
-    max-height: 92vh; overflow-y: auto;
-    background: var(--cream);
-    border-radius: 26px 26px 0 0;
-    padding: 26px 20px calc(24px + env(safe-area-inset-bottom));
-    transform: translateY(40px);
-    transition: transform .3s cubic-bezier(.2, .8, .2, 1);
-  }
-  .sheet.open .sheet-panel { transform: none; }
-  .sheet-panel h2 { font-weight: 900; font-size: 24px; line-height: 1.15; padding-left: 40px; }
-  .sheet-panel > p { font-size: 15px; color: var(--ink-soft); margin-top: 6px; }
-  .sheet-close {
-    position: absolute; top: 16px; left: 16px;
-    width: 40px; height: 40px; border-radius: 50%;
-    border: 0; background: var(--cream-2); color: var(--cocoa);
-    display: grid; place-items: center; cursor: pointer;
-  }
-  .sheet-close svg { width: 20px; height: 20px; }
-  @media (min-width: 600px) {
-    .sheet { align-items: center; }
-    .sheet-panel { border-radius: 26px; }
-  }
-
-  /* Rav Messer form, restyled to match the page */
-  .rm-form { margin-top: 14px; }
-  .rm-form, .rm-form * { font-family: "Rubik", system-ui, sans-serif !important; }
-  #waitlist .rm-form [role="heading"] { display: none !important; }
-  #waitlist .rm-form [class*="uniqueid_"] { background: transparent !important; }
-  #waitlist .rm-form input[type="text"] {
-    height: 54px !important;
-    padding: 0 16px !important;
-    border: 2px solid var(--cream-2) !important;
-    border-radius: 14px !important;
-    background: #fff !important;
-    color: var(--cocoa) !important;
-    font-size: 17px !important; /* 16px+ keeps iPhone from zooming in on focus */
-    box-shadow: none !important;
-  }
-  #waitlist .rm-form input[type="text"]::placeholder { color: #A08C80 !important; }
-  #waitlist .rm-form input[type="text"]:focus { border-color: var(--mango) !important; outline: none !important; }
-  #waitlist .rm-form .submitButton {
-    display: flex !important; align-items: center !important; justify-content: center !important;
-    width: 100% !important;
-    height: 54px !important;
-    text-decoration: none !important;
-    border: 0 !important;
-    border-radius: 999px !important;
-    background: linear-gradient(135deg, #FFE7A3, #E8B04B) !important;
-    color: var(--cocoa) !important;
-    font-size: 18px !important; font-weight: 700 !important;
-    box-shadow: 0 4px 0 #A8741F !important;
-    cursor: pointer;
-  }
-  #waitlist .rm-form .submitButton * { color: var(--cocoa) !important; font-weight: 700 !important; }
-  #waitlist .rm-form .submitButton:active { transform: scale(.97); box-shadow: 0 1px 0 #A8741F !important; }
-
   a:focus-visible { outline: 3px solid var(--mango); outline-offset: 3px; }
   @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after { animation: none !important; transition: none !important; }
@@ -305,15 +235,15 @@
     <div class="cards">
       <section class="card tray" aria-labelledby="tray-title">
         <div class="pic">
-          <span class="badge soon"><i></i>עולה בקרוב</span>
+          <span class="badge soon"><i></i>זמין עכשיו</span>
           <img src="img/tray.webp" width="900" height="787" alt="מגש אירוח עם קינוחים: מלבי, כוסיות, פבלובות, כדורי אוראו ונקניק שוקולד">
           <img class="logo" src="img/logo-tray.webp" width="560" height="387" alt="">
         </div>
         <div class="body">
           <h2 id="tray-title" class="sr-only">מגש של מיליון דולר</h2>
           <p class="lead">4 מגשים, 20 קינוחים. תהיי זאת שכולם מחכים לראות מה היא הביאה.</p>
-          <a class="btn" href="#waitlist" id="waitlist-btn" aria-controls="waitlist">
-            אני רוצה לקבל ראשונה
+          <a class="btn" href="magash/?utm_source=ig&amp;utm_medium=social&amp;utm_content=links_page">
+            אני רוצה את המגשים
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg>
           </a>
         </div>
@@ -364,45 +294,10 @@
     </footer>
   </main>
 
-  <!-- Tray waitlist sheet. The Rav Messer form script writes the form in place while the page loads,
-       so it has to stay inline here; the sheet only shows and hides it. -->
-  <div class="sheet" id="waitlist" role="dialog" aria-modal="true" aria-labelledby="sheet-title">
-    <div class="sheet-panel">
-      <button class="sheet-close" type="button" aria-label="סגירה">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
-      </button>
-      <h2 id="sheet-title">רשימת ההמתנה למגש של מיליון דולר</h2>
-      <p>כשהמגש עולה, את מקבלת ממני מייל ראשונה.</p>
-      <div class="rm-form">
-        <script type="text/javascript" src="https://form2.ravpage.co.il/8553b94437cb5a08bf4dd3b8e5c9a3bb6AEF5ADA" charset="UTF-8"></script>
-      </div>
-    </div>
-  </div>
-
   <script>
-    (function () {
-      var sheet = document.getElementById('waitlist');
-      var opener = document.getElementById('waitlist-btn');
-      function open(e) {
-        if (e) e.preventDefault();
-        sheet.classList.add('open');
-        document.body.style.overflow = 'hidden';
-        var first = sheet.querySelector('.rm-form input:not([type=hidden])');
-        if (first) setTimeout(function () { first.focus(); }, 250);
-      }
-      function close() {
-        sheet.classList.remove('open');
-        document.body.style.overflow = '';
-        if (location.hash === '#waitlist') history.replaceState(null, '', location.pathname + location.search);
-        opener.focus();
-      }
-      opener.addEventListener('click', open);
-      sheet.querySelector('.sheet-close').addEventListener('click', close);
-      sheet.addEventListener('click', function (e) { if (e.target === sheet) close(); });
-      document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && sheet.classList.contains('open')) close(); });
-      // Story links can open the form directly: links.adiiiezra.co.il/#waitlist
-      if (location.hash === '#waitlist') open();
-    })();
+    // Old story links pointed to links.adiiiezra.co.il/#waitlist (the tray waitlist form, removed at launch 13.11).
+    // Send them straight to the tray sales page instead of leaving them on a page with no form.
+    if (location.hash === '#waitlist') location.replace('magash/?utm_source=ig&utm_medium=social&utm_content=old_waitlist_link');
   </script>
 </body>
 </html>
