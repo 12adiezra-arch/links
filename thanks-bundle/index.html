@@ -56,6 +56,29 @@
     font-size: 14px; margin-top: 16px; padding: 12px 14px;
     background: rgba(255, 246, 236, .1); border-radius: 14px;
   }
+  .mail {
+    margin-top: 18px; padding: 16px 16px 14px; text-align: right;
+    background: var(--cream); color: var(--cocoa);
+    border-radius: 18px; border: 3px solid var(--mango);
+  }
+  .nw { white-space: nowrap; }
+  .mail-head { font-weight: 900; font-size: 19px; line-height: 1.3; margin: 0; }
+  .mail p { margin-top: 8px; font-size: 16px; }
+  .row {
+    display: flex; align-items: center; gap: 10px; margin-top: 12px;
+    padding: 10px 12px; background: #fff; border-radius: 12px;
+    box-shadow: 0 1px 4px rgba(38, 21, 15, .15);
+  }
+  .row + .row { margin-top: 8px; }
+  .row .av {
+    flex: none; width: 36px; height: 36px; border-radius: 50%;
+    background: var(--mango); color: var(--cocoa);
+    display: grid; place-items: center; font-weight: 900; font-size: 17px;
+  }
+  .row .from { display: block; font-weight: 700; font-size: 15px; }
+  .row .subj { display: block; font-size: 15px; color: var(--ink-soft); }
+  .mail .note { font-size: 14px; color: var(--ink-soft); }
+  .tip a { color: var(--mango-2); font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
   .btn {
     display: flex; align-items: center; justify-content: center;
     min-height: 50px; margin-top: 20px; border-radius: 999px;
@@ -85,8 +108,21 @@ if(!done){fbq('track','Purchase',{value:99,currency:'ILS',content_name:'מגש �
     </div>
     <div class="body">
       <h1>איזה כיף שהצטרפת!</h1>
-      <p>הגישה לשני הקורסים, מגש של מיליון דולר וקינוחי פירות, נשלחת אלייך למייל אוטומטית.</p>
-      <p class="tip">לא רואה את המייל? שווה להציץ בתיקיית קידומי מכירות או ספאם. ואם עדיין אין, תכתבי לי באינסטגרם ואסדר לך.</p>
+      <p>הגישה לשני הקורסים, מגש של מיליון דולר וקינוחי פירות, נשלחה אלייך עכשיו למייל, בשני מיילים נפרדים - אחד לכל קורס.</p>
+      <div class="mail">
+        <p class="mail-head">לא רואה את המיילים? תבדקי <span class="nw">ב"קידומי מכירות"</span></p>
+        <p>בג'ימייל הם נוחתים הרבה פעמים בלשונית <b>קידומי מכירות</b> ולא בדואר הראשי. כדאי להציץ גם בספאם.</p>
+        <div class="row">
+          <span class="av">ע</span>
+          <span><span class="from">עדי עזרא</span><span class="subj">כל 4 המגשים מחכים לך</span></span>
+        </div>
+        <div class="row">
+          <span class="av">ע</span>
+          <span><span class="from">עדי עזרא</span><span class="subj">קינוחי הפירות שלך מחכים</span></span>
+        </div>
+        <p class="note">הקבלה מגיעה במייל נפרד. הגישה לקורסים נמצאת רק בשני המיילים האלה.</p>
+      </div>
+      <p class="tip">לא מצאת גם שם? תכתבי לי <a href="https://ig.me/m/adiiiezra">באינסטגרם</a> ואסדר&nbsp;לך.</p>
       <a class="btn" href="https://www.instagram.com/adiiiezra">נתראה באינסטגרם</a>
     </div>
   </main>
